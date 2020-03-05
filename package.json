@@ -27,14 +27,12 @@
     "tough-cookie": "~3.0.1",
     "wappalyzer": "~5.9.24"
   },
-  "files": [
-    "src"
-  ],
   "devDependencies": {
     "@commitlint/cli": "latest",
     "@commitlint/config-conventional": "latest",
     "ava": "latest",
     "browserless": "latest",
+    "ci-publish": "latest",
     "conventional-github-releaser": "latest",
     "coveralls": "latest",
     "finepack": "latest",
@@ -48,12 +46,14 @@
     "prettier-standard": "latest",
     "standard": "latest",
     "standard-markdown": "latest",
-    "standard-version": "latest",
-    "ci-publish": "latest"
+    "standard-version": "latest"
   },
   "engines": {
     "node": ">= 10"
   },
+  "files": [
+    "src"
+  ],
   "scripts": {
     "clean": "rm -rf node_modules",
     "contributors": "(git-authors-cli && finepack && git add package.json && git commit -m 'build: contributors' --no-verify) || true",
