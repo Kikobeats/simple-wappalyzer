@@ -9,10 +9,10 @@ const { JSDOM, VirtualConsole } = jsdom
 const parseCookie = str => Cookie.parse(str).toJSON()
 
 const getCookies = str =>
-  []
-    .concat(str)
+  chain(str)
     .map(parseCookie)
     .map(({ key: name, ...props }) => ({ name, ...props }))
+    .value()
 
 const getHeaders = headers => mapValues(headers, value => [value])
 
