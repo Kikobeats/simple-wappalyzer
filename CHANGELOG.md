@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.3](https://github.com/Kikobeats/simple-wappalyzer/compare/v1.0.2...v1.0.3) (2020-03-08)
+
+
+### Bug Fixes
+
+* ensure cookies is an array ([a836aef](https://github.com/Kikobeats/simple-wappalyzer/commit/a836aef68b7be189f5c19f0271728696c110eccc))
+
 ### [1.0.2](https://github.com/Kikobeats/simple-wappalyzer/compare/v1.0.1...v1.0.2) (2020-03-07)
 
 
