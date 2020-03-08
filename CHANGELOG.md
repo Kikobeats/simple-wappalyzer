@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.4](https://github.com/Kikobeats/simple-wappalyzer/compare/v1.0.3...v1.0.4) (2020-03-08)
+
+
+### Bug Fixes
+
+* use lodash.get ([4d02c75](https://github.com/Kikobeats/simple-wappalyzer/commit/4d02c75533aed53d352200a23ac4214839db19fe))
+
 ### [1.0.3](https://github.com/Kikobeats/simple-wappalyzer/compare/v1.0.2...v1.0.3) (2020-03-08)
 
 
