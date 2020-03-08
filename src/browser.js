@@ -10,6 +10,8 @@ const parseCookie = str => Cookie.parse(str).toJSON()
 
 const getCookies = str =>
   chain(str)
+    .castArray()
+    .compact()
     .map(parseCookie)
     .map(({ key: name, ...props }) => ({ name, ...props }))
     .value()
