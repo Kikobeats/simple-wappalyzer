@@ -1,6 +1,6 @@
 'use strict'
 
-const { noop, chain, mapValues } = require('lodash')
+const { get, noop, chain, mapValues } = require('lodash')
 const { Cookie } = require('tough-cookie')
 const jsdom = require('jsdom')
 
@@ -33,9 +33,6 @@ const getLinks = links =>
     .value()
 
 function Browser ({ url, html, statusCode, headers }) {
-  const userAgent = headers['user-agent']
-  const contentType = headers['content-type']
-
   const { window } = new JSDOM(html, {
     url,
     runScripts: 'dangerously',
@@ -44,11 +41,11 @@ function Browser ({ url, html, statusCode, headers }) {
 
   return {
     visit: noop,
-    userAgent,
-    cookies: getCookies(headers['set-cookie']),
+    userAgent: get(headers, 'user-agent'),
+    cookies: getCookies(get(headers, 'set-cookie')),
     html,
     statusCode,
-    contentType,
+    contentType: get(headers, 'content-type'),
     document: window.document,
     window,
     headers: getHeaders(headers),
