@@ -24,7 +24,7 @@
   "dependencies": {
     "jsdom": "~16.2.0",
     "lodash": "~4.17.15",
-    "tough-cookie": "~3.0.1",
+    "tough-cookie": "~4.0.0",
     "wappalyzer": "~5.9.24"
   },
   "devDependencies": {
