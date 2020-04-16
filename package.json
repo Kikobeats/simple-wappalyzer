@@ -22,10 +22,10 @@
     "static"
   ],
   "dependencies": {
-    "jsdom": "~16.2.1",
+    "jsdom": "~16.2.2",
     "lodash": "~4.17.15",
     "tough-cookie": "~4.0.0",
-    "wappalyzer": "~5.9.27"
+    "wappalyzer": "~5.9.31"
   },
   "devDependencies": {
     "@commitlint/cli": "latest",
