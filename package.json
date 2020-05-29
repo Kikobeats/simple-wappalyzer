@@ -25,7 +25,7 @@
     "jsdom": "~16.2.2",
     "lodash": "~4.17.15",
     "tough-cookie": "~4.0.0",
-    "wappalyzer": "~5.9.31"
+    "wappalyzer": "~6.0.2"
   },
   "devDependencies": {
     "@commitlint/cli": "latest",
