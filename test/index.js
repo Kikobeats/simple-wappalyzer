@@ -1,5 +1,6 @@
 'use strict'
 
+const writeJsonFile = require('write-json-file')
 const filenamifyUrl = require('filenamify-url')
 const humanizeUrl = require('humanize-url')
 const existsFile = require('exists-file')
@@ -14,17 +15,16 @@ const wappalyzer = require('../src')
 const getFixture = async (url, opts) => {
   const filename = filenamifyUrl(url)
   const filepath = path.resolve(__dirname, 'fixtures', filename)
-  const hasFixture = await existsFile(filename)
-  if (hasFixture) return require(filename)
+  const hasFixture = await existsFile(filepath)
+  if (hasFixture) return JSON.parse(await fs.readFile(filepath, 'utf-8'))
   const result = await getHTML(url, opts)
-  await fs.writeFile(filepath, JSON.stringify(result, null, 2))
-  return result
+  await writeJsonFile(filepath, result)
 }
 
 ;['https://kikobeats.com', 'https://vercel.com'].forEach(targetUrl => {
   test(humanizeUrl(targetUrl), async t => {
-    const { headers, statusCode, url, html } = await getFixture(targetUrl)
-    const result = await wappalyzer({ url, statusCode, html, headers })
+    const fixture = await getFixture(targetUrl)
+    const result = await wappalyzer(fixture)
     t.snapshot(result)
   })
 })
