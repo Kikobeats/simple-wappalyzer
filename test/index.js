@@ -21,9 +21,16 @@ const getFixture = async (url, opts) => {
   await writeJsonFile(filepath, result)
 }
 
-;['https://kikobeats.com', 'https://vercel.com'].forEach(targetUrl => {
+const URLS = [
+  'https://kikobeats.com',
+  'https://vercel.com',
+  'https://www.theverge.com'
+]
+
+URLS.forEach(targetUrl => {
   test(humanizeUrl(targetUrl), async t => {
     const fixture = await getFixture(targetUrl)
+    console.log(fixture)
     const result = await wappalyzer(fixture)
     t.snapshot(result)
   })
