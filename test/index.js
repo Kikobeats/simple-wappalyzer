@@ -24,13 +24,13 @@ const getFixture = async (url, opts) => {
 const URLS = [
   'https://kikobeats.com',
   'https://vercel.com',
-  'https://www.theverge.com'
+  'https://www.theverge.com',
+  'https://microlink.io'
 ]
 
 URLS.forEach(targetUrl => {
   test(humanizeUrl(targetUrl), async t => {
     const fixture = await getFixture(targetUrl)
-    console.log(fixture)
     const result = await wappalyzer(fixture)
     t.snapshot(result)
   })
