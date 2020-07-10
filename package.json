@@ -23,7 +23,7 @@
   ],
   "dependencies": {
     "got": "~11.5.0",
-    "jsdom": "~16.2.2",
+    "jsdom": "~16.3.0",
     "lodash": "~4.17.15",
     "tough-cookie": "~4.0.0",
     "wappalyzer-core": "~6.0.12",
