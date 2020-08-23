@@ -39,11 +39,7 @@ const getMeta = document =>
   }, {})
 
 module.exports = ({ url, headers, html }) => {
-  const dom = new JSDOM(html, {
-    url,
-    runScripts: 'dangerously',
-    virtualConsole: new VirtualConsole()
-  })
+  const dom = new JSDOM(html, { url, virtualConsole: new VirtualConsole() })
 
   const detections = wappalyzer.analyze({
     url,
