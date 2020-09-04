@@ -4,11 +4,11 @@ const writeJsonFile = require('write-json-file')
 const got = require('got')
 
 const main = async () => {
-  const apps = await got(
-    'https://raw.githack.com/aliasio/wappalyzer/master/src/apps.json'
+  const technologies = await got(
+    'https://raw.githack.com/aliasio/wappalyzer/master/src/technologies.json'
   ).json()
 
-  await writeJsonFile('src/apps.json', apps)
+  await writeJsonFile('src/technologies.json', technologies)
 }
 
 main()
