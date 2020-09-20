@@ -22,11 +22,11 @@
     "static"
   ],
   "dependencies": {
-    "got": "~11.6.0",
+    "got": "~11.7.0",
     "jsdom": "~16.4.0",
     "lodash": "~4.17.20",
     "tough-cookie": "~4.0.0",
-    "wappalyzer-core": "~6.3.0",
+    "wappalyzer-core": "~6.3.6",
     "write-json-file": "~4.3.0"
   },
   "devDependencies": {
