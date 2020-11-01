@@ -44,7 +44,7 @@ module.exports = ({ url, headers, html }) => {
   
   let cookies_lowerCase = null;
   var searchKey = 'set-cookie';
-  cookies_lowerCase = headers[Object.keys(myObj).find(key => { 
+  cookies_lowerCase = headers[Object.keys(headers).find(key => { 
       if(key.toLowerCase() === searchKey.toLowerCase()){
           //console.log("MATCH!!!");
           return true;
