@@ -44,21 +44,22 @@ module.exports = ({ url, headers, html }) => {
   
   let cookies_lowerCase = null;
   var searchKey = 'set-cookie';
-  cookies_lowerCase = Object.keys(myObj).find(key => { 
+  cookies_lowerCase = headers[Object.keys(myObj).find(key => { 
       if(key.toLowerCase() === searchKey.toLowerCase()){
           //console.log("MATCH!!!");
           return true;
       }
-  })
+  })];
 
   const detections = wappalyzer.analyze({
     url,
     meta: getMeta(dom.window.document),
     headers: getHeaders(headers),
     scripts: getScripts(dom.window.document.scripts),
-    cookies: getCookies(headers['set-cookie']),
+    cookies: getCookies(cookies_lowerCase),
     html: dom.serialize()
   })
+
 
   return wappalyzer.resolve(detections)
 }
