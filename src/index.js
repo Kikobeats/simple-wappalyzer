@@ -1,5 +1,5 @@
 'use strict'
-//test ed
+
 const { chain, mapValues } = require('lodash')
 const wappalyzer = require('wappalyzer-core')
 const { Cookie } = require('tough-cookie')
@@ -15,6 +15,7 @@ wappalyzer.setCategories(categories)
 const parseCookie = str => Cookie.parse(str).toJSON()
 
 const getCookies = str =>
+
   chain(str)
     .castArray()
     .compact()
@@ -40,6 +41,15 @@ const getMeta = document =>
 
 module.exports = ({ url, headers, html }) => {
   const dom = new JSDOM(html, { url, virtualConsole: new VirtualConsole() })
+  
+  let cookies_lowerCase = null;
+  var searchKey = 'set-cookie';
+  cookies_lowerCase = Object.keys(myObj).find(key => { 
+      if(key.toLowerCase() === searchKey.toLowerCase()){
+          //console.log("MATCH!!!");
+          return true;
+      }
+  })
 
   const detections = wappalyzer.analyze({
     url,
