@@ -9,6 +9,12 @@ const main = async () => {
   ).json()
 
   await writeJsonFile('src/technologies.json', technologies)
+
+  const technologies = await got(
+    'https://raw.githack.com/aliasio/wappalyzer/master/schema.json'
+  ).json()
+
+  await writeJsonFile('./schema.json', schema)
 }
 
 main()
