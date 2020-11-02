@@ -4,9 +4,11 @@ const { chain, mapValues } = require('lodash')
 const wappalyzer = require('wappalyzer-core')
 const { Cookie } = require('tough-cookie')
 const jsdom = require('jsdom')
+const Validator = require('jsonschema').Validator
+const schema = require('./../schema.json')
 
 const { JSDOM, VirtualConsole } = jsdom
-
+const toTest = require('./technologies.json')
 const { technologies, categories } = require('./technologies.json')
 
 wappalyzer.setTechnologies(technologies)
@@ -23,6 +25,10 @@ const getCookies = str =>
     .value()
 
 const getHeaders = headers => mapValues(headers, value => [value])
+
+const getScheme = () => {
+  return schema
+}
 
 const getScripts = scripts =>
   chain(scripts)
@@ -47,8 +53,17 @@ const getMeta = document =>
     return acc
   }, {})
 
-module.exports = ({ url, headers, html }) => {
+module.exports = ({ url, headers, html, external }) => {
   const dom = new JSDOM(html, { url, virtualConsole: new VirtualConsole() })
+
+  if (external !== undefined && external !== null) {
+    const v = new Validator()
+    const schemaToTestAgainst = schema
+    const isValid = v.validate(external, schemaToTestAgainst)
+    if (isValid !== undefined && isValid !== null) {
+      console.log(isValid.errors)
+    }
+  }
 
   const detections = wappalyzer.analyze({
     url,
@@ -63,3 +78,4 @@ module.exports = ({ url, headers, html }) => {
 }
 
 module.exports.getHeader = getHeader
+module.exports.getScheme = getScheme()
