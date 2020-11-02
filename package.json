@@ -51,6 +51,7 @@
     "html-get": "latest",
     "humanize-url": "latest",
     "husky": "latest",
+    "jsonschema": "~1.4.0",
     "lint-staged": "latest",
     "npm-check-updates": "latest",
     "nyc": "latest",
