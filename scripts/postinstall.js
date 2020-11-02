@@ -10,7 +10,7 @@ const main = async () => {
 
   await writeJsonFile('src/technologies.json', technologies)
 
-  const technologies = await got(
+  const schema = await got(
     'https://raw.githack.com/aliasio/wappalyzer/master/schema.json'
   ).json()
 
