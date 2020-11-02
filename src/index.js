@@ -1,5 +1,5 @@
 'use strict'
-
+console.log('test')
 const { chain, mapValues } = require('lodash')
 const wappalyzer = require('wappalyzer-core')
 const { Cookie } = require('tough-cookie')
