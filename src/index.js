@@ -31,6 +31,15 @@ const getScripts = scripts =>
     .uniq()
     .value()
 
+const getHeader = (headers, name) => {
+  name = name.toLowerCase()
+  let result
+  Object.keys(headers).find(
+    key => name === key.toLowerCase() && (result = headers[key])
+  )
+  return result
+}
+
 const getMeta = document =>
   Array.from(document.querySelectorAll('meta')).reduce((acc, meta) => {
     const key = meta.getAttribute('name') || meta.getAttribute('property')
@@ -46,9 +55,11 @@ module.exports = ({ url, headers, html }) => {
     meta: getMeta(dom.window.document),
     headers: getHeaders(headers),
     scripts: getScripts(dom.window.document.scripts),
-    cookies: getCookies(headers['set-cookie']),
+    cookies: getCookies(getHeader(headers, 'set-cookie')),
     html: dom.serialize()
   })
 
   return wappalyzer.resolve(detections)
 }
+
+module.exports.getHeader = getHeader
