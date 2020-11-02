@@ -14,7 +14,7 @@ const main = async () => {
     'https://raw.githack.com/aliasio/wappalyzer/master/schema.json'
   ).json()
 
-  await writeJsonFile('schema.json', schema)
+  await writeJsonFile('./schema.json', schema)
 }
 
 main()
