@@ -54,16 +54,24 @@ const getMeta = document =>
   }, {})
 
 module.exports = ({ url, headers, html, external }) => {
-  const dom = new JSDOM(html, { url, virtualConsole: new VirtualConsole() })
-
+  /*
+    If user provided optional external package (their own technologies.json expansion)
+    The following script checks the validity of this expansion and throws an error if 
+    file does not match schema.
+  */
   if (external !== undefined && external !== null) {
     const v = new Validator()
     const schemaToTestAgainst = schema
     const isValid = v.validate(external, schemaToTestAgainst)
     if (isValid !== undefined && isValid !== null) {
-      console.log(isValid.errors)
+      if (isValid.errors.length > 0) {
+        console.log(isValid.errors)
+        return false
+      }
     }
   }
+
+  const dom = new JSDOM(html, { url, virtualConsole: new VirtualConsole() })
 
   const detections = wappalyzer.analyze({
     url,
