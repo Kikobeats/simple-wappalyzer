@@ -15,7 +15,6 @@ wappalyzer.setCategories(categories)
 const parseCookie = str => Cookie.parse(str).toJSON()
 
 const getCookies = str =>
-
   chain(str)
     .castArray()
     .compact()
@@ -32,6 +31,15 @@ const getScripts = scripts =>
     .uniq()
     .value()
 
+const getHeader = (headers, name) => {
+  name = name.toLowerCase()
+  let result
+  Object.keys(headers).find(
+    key => name === key.toLowerCase() && (result = headers[key])
+  )
+  return result
+}
+
 const getMeta = document =>
   Array.from(document.querySelectorAll('meta')).reduce((acc, meta) => {
     const key = meta.getAttribute('name') || meta.getAttribute('property')
@@ -41,25 +49,17 @@ const getMeta = document =>
 
 module.exports = ({ url, headers, html }) => {
   const dom = new JSDOM(html, { url, virtualConsole: new VirtualConsole() })
-  
-  let cookies_lowerCase = null;
-  var searchKey = 'set-cookie';
-  cookies_lowerCase = headers[Object.keys(headers).find(key => { 
-      if(key.toLowerCase() === searchKey.toLowerCase()){
-          //console.log("MATCH!!!");
-          return true;
-      }
-  })];
 
   const detections = wappalyzer.analyze({
     url,
     meta: getMeta(dom.window.document),
     headers: getHeaders(headers),
     scripts: getScripts(dom.window.document.scripts),
-    cookies: getCookies(cookies_lowerCase),
+    cookies: getCookies(getHeader(headers, 'set-cookie')),
     html: dom.serialize()
   })
 
-
   return wappalyzer.resolve(detections)
 }
+
+module.exports.getHeader = getHeader
