@@ -2,13 +2,19 @@
   "name": "simple-wappalyzer",
   "description": "A simple way to interacting with Wappalyzer.",
   "homepage": "https://nicedoc.io/Kikobeats/simple-wappalyzer",
-  "version": "1.1.16",
+  "version": "1.1.18",
   "main": "src/index.js",
   "author": {
     "email": "josefrancisco.verdu@gmail.com",
     "name": "Kiko Beats",
     "url": "https://kikobeats.com"
   },
+  "contributors": [
+    {
+      "name": "BigFoxMedia",
+      "email": "ediklainer@gmail.com"
+    }
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Kikobeats/simple-wappalyzer.git"
@@ -26,7 +32,7 @@
     "jsdom": "~16.4.0",
     "lodash": "~4.17.20",
     "tough-cookie": "~4.0.0",
-    "wappalyzer-core": "~6.3.11",
+    "wappalyzer-core": "~6.3.12",
     "write-json-file": "~4.3.0"
   },
   "devDependencies": {

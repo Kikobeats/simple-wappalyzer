@@ -284,6 +284,10 @@
 		"73": {
 			"name": "Surveys",
 			"priority": 9
+		},
+		"74": {
+			"name": "A/B Testing",
+			"priority": 9
 		}
 	},
 	"technologies": {
@@ -460,6 +464,20 @@
 			"icon": "Accessibe.png",
 			"scripts": "acsbap\\.com/.*/acsb\\.js",
 			"website": "https://accessibe.com/"
+		},
+		"Accesso": {
+			"cats": [
+				6,
+				61,
+				72
+			],
+			"description": "Accesso provides ticketing, ecommerce and Point-of-Sale (PoS) solutions.",
+			"icon": "Accesso.svg",
+			"js": {
+				"accesso": ""
+			},
+			"scripts": "/embed/accesso\\.js",
+			"website": "https://accesso.com/"
 		},
 		"Act-On": {
 			"cats": [
@@ -1044,22 +1062,6 @@
 			"implies": "Amazon Web Services",
 			"website": "https://aws.amazon.com/elasticloadbalancing/"
 		},
-		"Coinbase Commerce": {
-			"cats": [
-				41,
-				61
-			],
-			"description": "Coinbase Commerce is a platform that enables merchants to accept cryptocurrency payments.",
-			"dom": {
-				"a[href^='https://commerce.coinbase.com/checkout/']": {
-					"attributes": {
-						"href": "^https://commerce\\.coinbase\\.com/checkout/[a-z0-9-]+$"
-					}
-				}
-			},
-			"icon": "Coinbase.svg",
-			"website": "https://commerce.coinbase.com/"
-		},
 		"Amazon Associates": {
 			"cats": [
 				71
@@ -1080,46 +1082,17 @@
 			"icon": "Amazon.svg",
 			"website": "https://affiliate-program.amazon.com.au/"
 		},
-		"Google Workspace": {
-			"cats": [
-				30,
-				61
-			],
-			"description": "Google Workspace, formerly G Suite, is a collection of cloud computing, productivity and collaboration tools.",
-			"dns": {
-				"MX": [
-					"aspmx\\.l\\.google\\.com",
-					"googlemail\\.com"
-				]
-			},
-			"icon": "Google Workspace.svg",
-			"website": "https://workspace.google.com/"
-		},
-		"Microsoft 365": {
-			"cats": [
-				30,
-				61
-			],
-			"description": "Microsoft 365 is a line of subscription services offered by Microsoft as part of the Microsoft Office product line.",
-			"dns": {
-				"MX": [
-					"outlook\\.com"
-				]
-			},
-			"icon": "Microsoft 365.svg",
-			"website": "https://www.microsoft.com/microsoft-365"
-		},
 		"Amazon Cloudfront": {
 			"cats": [
 				31
 			],
 			"description": "Amazon CloudFront is a fast content delivery network (CDN) service that securely delivers data, videos, applications, and APIs to customers globally with low latency, high transfer speeds.",
+			"dns": {
+				"CNAME": "^[a-z0-9]+\\.cloudfront.net$"
+			},
 			"headers": {
 				"Via": "\\(CloudFront\\)$",
 				"X-Amz-Cf-Id": ""
-			},
-			"dns": {
-				"CNAME": "^[a-z0-9]+\\.cloudfront.net$"
 			},
 			"icon": "Amazon-Cloudfront.svg",
 			"implies": "Amazon Web Services",
@@ -1193,10 +1166,10 @@
 			"cats": [
 				62
 			],
+			"description": "Amazon Web Services (AWS) is a comprehensive cloud services platform offering compute power, database storage, content delivery and other functionality.",
 			"dns": {
 				"NS": "\\.awsdns-"
 			},
-			"description": "Amazon Web Services (AWS) is a comprehensive cloud services platform offering compute power, database storage, content delivery and other functionality.",
 			"icon": "aws.svg",
 			"website": "https://aws.amazon.com/"
 		},
@@ -1289,11 +1262,17 @@
 				12
 			],
 			"description": "Angular is a TypeScript-based open-source web application framework led by the Angular Team at Google.",
+			"dom": {
+				"[ng-version]": {
+					"attributes": {
+						"ng-version": "^([\\d.]+)\\;version:\\1"
+					}
+				}
+			},
 			"excludes": [
 				"AngularDart",
 				"AngularJS"
 			],
-			"html": "<[^>]+ ng-version=\"([\\d.]+)\"\\;version:\\1",
 			"icon": "Angular.svg",
 			"js": {
 				"ng.coreTokens": "",
@@ -1517,6 +1496,16 @@
 			"icon": "Apple.svg",
 			"scripts": "appleid.auth.js",
 			"website": "https://developer.apple.com/sign-in-with-apple/"
+		},
+		"Appointy": {
+			"cats": [
+				72,
+				61
+			],
+			"description": "Appointy’s online scheduling software.",
+			"html": "<iframe[^>]+src=\"?https://[\\w\\d\\-]+\\.appointy\\.com",
+			"icon": "Appointy.png",
+			"website": "https://www.appointy.com/"
 		},
 		"Arastta": {
 			"cats": [
@@ -1828,6 +1817,7 @@
 				"ARRAffinity": "",
 				"TiPMix": ""
 			},
+			"description": "Azure is a cloud computing service for building, testing, deploying, and managing applications and services through Microsoft-managed data centers.",
 			"dns": {
 				"NS": [
 					"\\.azure-dns\\."
@@ -1836,7 +1826,6 @@
 					"azuredns-cloud\\.net"
 				]
 			},
-			"description": "Azure is a cloud computing service for building, testing, deploying, and managing applications and services through Microsoft-managed data centers.",
 			"headers": {
 				"azure-regionname": "",
 				"azure-sitename": "",
@@ -2229,6 +2218,55 @@
 			"implies": "CodeIgniter",
 			"website": "http://cibonfire.com"
 		},
+		"BookDinners": {
+			"cats": [
+				5,
+				61,
+				72
+			],
+			"description": "BookDinners is a restaurant table booking widget.",
+			"icon": "BookDinners.svg",
+			"scripts": "bookdinners\\.nl/widget\\.js",
+			"website": "https://www.bookdinners.nl"
+		},
+		"Bookatable": {
+			"cats": [
+				5,
+				61,
+				72
+			],
+			"description": "Bookatable is a restaurant table booking widget.",
+			"icon": "Bookatable.svg",
+			"scripts": "bda\\.bookatable\\.com/deploy/lbui\\.direct\\.min\\.js",
+			"website": "https://www.bookatable.co.uk"
+		},
+		"Bookingkit": {
+			"cats": [
+				5,
+				61,
+				72
+			],
+			"description": "Bookingkit is an online booking management solution. Bookingkit helps its users generate PDF invoices, manage day-to-day scheduling operations, and automatically sync availabilities in real time.",
+			"icon": "Bookingkit.svg",
+			"js": {
+				"BookingKitApp": ""
+			},
+			"website": "https://bookingkit.net/"
+		},
+		"Booksy": {
+			"cats": [
+				5,
+				61,
+				72
+			],
+			"description": "Booksy is a booking system for people looking to schedule appointments for health and beauty services.",
+			"icon": "Booksy.svg",
+			"js": {
+				"booksy": ""
+			},
+			"scripts": "booksy\\.com/widget/code\\.js",
+			"website": "https://booksy.com/"
+		},
 		"Bootstrap": {
 			"cats": [
 				66
@@ -2296,7 +2334,7 @@
 			"cats": [
 				41
 			],
-			"description": "Braintree, a division of PayPal, specializes in mobile and web payment systems for e-commerce companies. Braintree provides clients with a merchant account and a payment gateway.",
+			"description": "Braintree, a division of PayPal, specializes in mobile and web payment systems for ecommerce companies. Braintree provides clients with a merchant account and a payment gateway.",
 			"icon": "Braintree.svg",
 			"js": {
 				"Braintree": "",
@@ -2773,6 +2811,18 @@
 			"scripts": "chartbeat\\.js",
 			"website": "http://chartbeat.com"
 		},
+		"Checkfront": {
+			"cats": [
+				5,
+				6,
+				61,
+				72
+			],
+			"description": "Checkfront is a cloud-based booking management application and ecommerce platform.",
+			"icon": "Checkfront.svg",
+			"scripts": "\\.checkfront\\.com/",
+			"website": "https://www.checkfront.com"
+		},
 		"Cherokee": {
 			"cats": [
 				22
@@ -2931,6 +2981,25 @@
 			},
 			"website": "http://www.clicktale.com"
 		},
+		"Clickbank": {
+			"cats": [
+				71
+			],
+			"dom": {
+				"a[href*='pay.clickbank.net?cbfid']": {
+					"text": ""
+				},
+				"img[width='1'][src*='hop.clickbank.net?affiliate']": {
+					"text": ""
+				}
+			},
+			"icon": "Clickbank.svg",
+			"js": {
+				"cbtb": ""
+			},
+			"scripts": "r\\.wdfl\\.co",
+			"website": "https://www.getrewardful.com/"
+		},
 		"Clicky": {
 			"cats": [
 				10
@@ -3026,6 +3095,16 @@
 			},
 			"website": "http://www.cloudflare.com"
 		},
+		"Cloudinary": {
+			"cats": [
+				31
+			],
+			"html": [
+				"<img[^>]+\\.cloudinary\\.com\\;confidence:80"
+			],
+			"icon": "Cloudinary.svg",
+			"website": "https://cloudinary.com"
+		},
 		"Coaster CMS": {
 			"cats": [
 				1
@@ -3037,6 +3116,19 @@
 				"generator": "^Coaster CMS v([\\d.]+)$\\;version:\\1"
 			},
 			"website": "https://www.coastercms.org"
+		},
+		"CoconutSoftware": {
+			"cats": [
+				5,
+				61,
+				72
+			],
+			"cookies": {
+				"coconut_calendar": ""
+			},
+			"description": "Coconut is a cloud-based appointment scheduling solution designed for enterprise financial services organizations such as credit unions, retail banks and more.",
+			"icon": "CoconutSoftware.svg",
+			"website": "https://www.coconutsoftware.com/"
 		},
 		"CodeIgniter": {
 			"cats": [
@@ -3091,6 +3183,22 @@
 			"icon": "CoinHive.svg",
 			"scripts": "https?://authedmine\\.com/(?:lib/captcha|captcha)",
 			"website": "https://coinhive.com"
+		},
+		"Coinbase Commerce": {
+			"cats": [
+				41,
+				61
+			],
+			"description": "Coinbase Commerce is a platform that enables merchants to accept cryptocurrency payments.",
+			"dom": {
+				"a[href^='https://commerce.coinbase.com/checkout/']": {
+					"attributes": {
+						"href": "^https://commerce\\.coinbase\\.com/checkout/[a-z0-9-]+$"
+					}
+				}
+			},
+			"icon": "Coinbase.svg",
+			"website": "https://commerce.coinbase.com/"
 		},
 		"Coinhave": {
 			"cats": [
@@ -3160,8 +3268,8 @@
 			],
 			"description": "Commerce.js is an API-first eCommerce platform for developers & businesses.",
 			"headers": {
-				"X-Support": "support@commercejs\\.com",
-				"Chec-Version": ".*"
+				"Chec-Version": ".*",
+				"X-Support": "support@commercejs\\.com"
 			},
 			"icon": "commercejs.png",
 			"scripts": [
@@ -3360,6 +3468,16 @@
 				"Countly": ""
 			},
 			"website": "https://count.ly"
+		},
+		"CoverManager": {
+			"cats": [
+				5,
+				72
+			],
+			"description": "CoverManager is a restaurant table booking widget.",
+			"html": "<iframe[^>]*covermanager\\.com/reservation",
+			"icon": "CoverManager.svg",
+			"website": "https://www.covermanager.com"
 		},
 		"Cowboy": {
 			"cats": [
@@ -4371,6 +4489,18 @@
 			"scripts": "elqCfg\\.js",
 			"website": "http://eloqua.com"
 		},
+		"Emarsys": {
+			"cats": [
+				32,
+				61
+			],
+			"description": "Emarsys is a cloud-based B2C marketing platform.",
+			"icon": "Emarsys.svg",
+			"js": {
+				"ScarabQueue": ""
+			},
+			"website": "https://emarsys.com/"
+		},
 		"EmbedThis Appweb": {
 			"cats": [
 				22
@@ -4510,6 +4640,17 @@
 				"/ep_etherpad-lite/"
 			],
 			"website": "https://etherpad.org"
+		},
+		"Eveve": {
+			"cats": [
+				5,
+				72
+			],
+			"description": "Eveve is a restaurant table booking widget.",
+			"html": "<iframe[^>]*[\\w]+\\.eveve\\.com",
+			"icon": "Eveve.svg",
+			"implies": "PHP",
+			"website": "https://www.eveve.com"
 		},
 		"Exhibit": {
 			"cats": [
@@ -4678,6 +4819,18 @@
 			"icon": "FaraPy.png",
 			"implies": "Python",
 			"website": "https://faral.tech"
+		},
+		"FareHarbor": {
+			"cats": [
+				5,
+				61,
+				72
+			],
+			"description": "FareHarbor is an booking and schedule management solution intended for tour and activity companies.",
+			"html": "<iframe[^>]+fareharbor",
+			"icon": "FareHarbor.svg",
+			"scripts": "fareharbor\\.com/embeds/api/",
+			"website": "https://fareharbor.com"
 		},
 		"Fastcommerce": {
 			"cats": [
@@ -5699,6 +5852,18 @@
 			],
 			"website": "http://maps.google.com"
 		},
+		"Google Optimize": {
+			"cats": [
+				74
+			],
+			"description": "Google Optimize allows you to test variants of web pages and see how they perform.",
+			"icon": "Google Optimize.svg",
+			"js": {
+				"google_optimize": ""
+			},
+			"scripts": "googleoptimize\\.com/optimize\\.js",
+			"website": "https://optimize.google.com"
+		},
 		"Google PageSpeed": {
 			"cats": [
 				23,
@@ -5821,6 +5986,21 @@
 				"gwt:property": ""
 			},
 			"website": "http://developers.google.com/web-toolkit"
+		},
+		"Google Workspace": {
+			"cats": [
+				30,
+				61
+			],
+			"description": "Google Workspace, formerly G Suite, is a collection of cloud computing, productivity and collaboration tools.",
+			"dns": {
+				"MX": [
+					"aspmx\\.l\\.google\\.com",
+					"googlemail\\.com"
+				]
+			},
+			"icon": "Google Workspace.svg",
+			"website": "https://workspace.google.com/"
 		},
 		"Graffiti CMS": {
 			"cats": [
@@ -6924,12 +7104,24 @@
 		},
 		"Jibres": {
 			"cats": [
-				6
+				6,
+				55
 			],
+			"cookies": {
+				"jibres": ""
+			},
+			"description": "Jibres is an ecommerce solution with an online store builder and Point-of-Sale (PoS) software.",
 			"headers": {
 				"X-Powered-By": "Jibres"
 			},
 			"icon": "Jibres.svg",
+			"js": {
+				"jibres": ""
+			},
+			"meta": {
+				"generator": "Jibres"
+			},
+			"scripts": "/jibres\\.js",
 			"website": "https://jibres.com"
 		},
 		"Jimdo": {
@@ -7540,6 +7732,24 @@
 			"scripts": "//platform\\.linkedin\\.com/in\\.js",
 			"website": "http://linkedin.com"
 		},
+		"Linkedin Insight Tag": {
+			"cats": [
+				10
+			],
+			"dom": {
+				"noscript > img[src*='dc.ads.linkedin.com']": {
+					"attributes": {
+						"src": ""
+					}
+				}
+			},
+			"icon": "Linkedin.svg",
+			"js": {
+				"_linkedin_data_partner_id": ""
+			},
+			"scripts": "snap\\.licdn\\.com/li\\.lms-analytics/insight\\.min\\.js",
+			"website": "https://business.linkedin.com/marketing-solutions/insight-tag"
+		},
 		"Liquid Web": {
 			"cats": [
 				62
@@ -7912,12 +8122,12 @@
 				32
 			],
 			"cpe": "cpe:/a:thinkshout:mailchimp",
+			"description": "Mailchimp is a marketing automation platform and email marketing service.",
 			"dns": {
 				"TXT": [
 					"spf\\.mandrillapp\\.com"
 				]
 			},
-			"description": "Mailchimp is a marketing automation platform and email marketing service.",
 			"html": [
 				"<form [^>]*data-mailchimp-url",
 				"<form [^>]*id=\"mc-embedded-subscribe-form\"",
@@ -8053,6 +8263,20 @@
 				"generator": "^MasterkinG(?:)"
 			},
 			"website": "https://masterking32.com"
+		},
+		"Mastodon": {
+			"cats": [
+				2
+			],
+			"cookies": {
+				"_mastodon_session": ""
+			},
+			"description": "Mastodon is a free and open-source self-hosted social networking service.",
+			"headers": {
+				"Server": "^Mastodon$"
+			},
+			"icon": "Mastodon.svg",
+			"website": "https://joinmastodon.org"
 		},
 		"Material Design Lite": {
 			"cats": [
@@ -8345,6 +8569,20 @@
 			],
 			"website": "https://metomic.io"
 		},
+		"Microsoft 365": {
+			"cats": [
+				30,
+				61
+			],
+			"description": "Microsoft 365 is a line of subscription services offered by Microsoft as part of the Microsoft Office product line.",
+			"dns": {
+				"MX": [
+					"outlook\\.com"
+				]
+			},
+			"icon": "Microsoft 365.svg",
+			"website": "https://www.microsoft.com/microsoft-365"
+		},
 		"Microsoft ASP.NET": {
 			"cats": [
 				18
@@ -8502,6 +8740,18 @@
 			},
 			"scripts": "mint/\\?js",
 			"website": "https://haveamint.com"
+		},
+		"Misskey": {
+			"cats": [
+				2
+			],
+			"description": "Misskey is a distributed microblogging platform.",
+			"html": "<!-- Thank you for using Misskey! @syuilo -->",
+			"icon": "Misskey.svg",
+			"meta": {
+				"application-name": "Misskey"
+			},
+			"website": "https://join.misskey.page/"
 		},
 		"Miva": {
 			"cats": [
@@ -9299,7 +9549,7 @@
 				6
 			],
 			"cpe": "cpe:/a:odoo:odoo",
-			"description": "Odoo is business management software which includes CRM, e-commerce, billing, accounting, manufacturing, warehouse, project management, and inventory management.",
+			"description": "Odoo is business management software which includes CRM, ecommerce, billing, accounting, manufacturing, warehouse, project management, and inventory management.",
 			"html": "<link[^>]* href=[^>]+/web/css/(?:web\\.assets_common/|website\\.assets_frontend/)\\;confidence:25",
 			"icon": "Odoo.png",
 			"implies": [
@@ -9598,7 +9848,7 @@
 		},
 		"Optimizely": {
 			"cats": [
-				10
+				74
 			],
 			"icon": "Optimizely.png",
 			"js": {
@@ -9839,6 +10089,20 @@
 			],
 			"website": "http://phpdebugbar.com/"
 		},
+		"PIXIjs": {
+			"cats": [
+				25
+			],
+			"description": "PixiJS - The HTML5 Creation Engine. 2D WebGL renderer.",
+			"icon": "pixijs.png",
+			"js": {
+				"PIXI": "",
+				"PIXI.VERSION": "^(.+)$\\;version:\\1"
+			},
+			"scripts": "pixi\\.(min\\.)?js$",
+			"url": ".+\\.pixijs\\.com",
+			"website": "https://www.pixijs.com/"
+		},
 		"PageFly": {
 			"cats": [
 				51
@@ -9978,6 +10242,22 @@
 			"scripts": "paypalobjects\\.com",
 			"url": "paypal\\.com",
 			"website": "https://paypal.com"
+		},
+		"PeerTube": {
+			"cats": [
+				2
+			],
+			"description": "PeerTube is a free and open-source, decentralized, federated video platform powered by ActivityPub and WebTorrent.",
+			"dom": {
+				"p": {
+					"text": "^We are sorry but it seems that PeerTube is not compatible with your web browser\\.$"
+				}
+			},
+			"icon": "PeerTube.svg",
+			"meta": {
+				"og:platform": "^PeerTube$"
+			},
+			"website": "https://joinpeertube.org/"
 		},
 		"Pelican": {
 			"cats": [
@@ -10189,31 +10469,24 @@
 			},
 			"website": "https://www.pipedrive.com/"
 		},
-		"PIXIjs": {
+		"PixelFed": {
 			"cats": [
-				25
+				2
 			],
-			"description": "PixiJS - The HTML5 Creation Engine. 2D WebGL renderer.",
-			"icon": "pixijs.png",
-			"js": {
-				"PIXI": "",
-				"PIXI.version": "^(.+)$\\;version:\\1"
+			"description": "PixelFed is an activitypub based image sharing platform.",
+			"dom": {
+				"a[href='https://pixelfed.org'][title*='version']": {
+					"attributes": {
+						"title": "^version ([0-9.]+)$\\;version:\\1"
+					},
+					"text": "^Powered by Pixelfed$"
+				}
 			},
-			"url": ".+\\.pixijs\\.com",
-			"scripts": "pixi\\.(min\\.)?js$",
-			"website": "https://www.pixijs.com/"
-		},
-		"Emarsys": {
-			"cats": [
-				32,
-				61
+			"icon": "PixelFed.svg",
+			"implies": [
+				"Laravel"
 			],
-			"description": "Emarsys is a cloud-based B2C marketing platform.",
-			"icon": "Emarsys.svg",
-			"js": {
-				"ScarabQueue": ""
-			},
-			"website": "https://emarsys.com/"
+			"website": "https://pixelfed.org"
 		},
 		"Planet": {
 			"cats": [
@@ -10261,6 +10534,22 @@
 			"icon": "Play.svg",
 			"implies": "Scala",
 			"website": "https://www.playframework.com"
+		},
+		"Pleroma": {
+			"cats": [
+				2
+			],
+			"description": "Pleroma is a free, federated social networking server built on open protocols.",
+			"dom": {
+				"noscript": {
+					"text": "^To use Pleroma, please enable JavaScript.$"
+				},
+				"title": {
+					"text": "^Pleroma$"
+				}
+			},
+			"icon": "Pleroma.svg",
+			"website": "https://pleroma.social/"
 		},
 		"Plesk": {
 			"cats": [
@@ -11268,6 +11557,15 @@
 			],
 			"website": "https://rollbar.com/"
 		},
+		"Rotic": {
+			"cats": [
+				52
+			],
+			"description": "Rotic is a conversion chatbot that answers questions, captures contacts, and books meetings.",
+			"icon": "Rotic.png",
+			"scripts": "https://rotic.ir/api/v1/enterprise/\\S+/widget/\\S+",
+			"website": "https://rotic.ir"
+		},
 		"RoundCube": {
 			"cats": [
 				30
@@ -11771,6 +12069,24 @@
 			"scripts": "select2(?:\\.min|\\.full)?\\.js",
 			"website": "https://select2.org/"
 		},
+		"Sellix": {
+			"cats": [
+				6
+			],
+			"description": "Sellix is an ecommerce payment processor. It accepts PayPal, PerfectMoney and popular cryptocurrencies.",
+			"icon": "Sellix.svg",
+			"scripts": "cdn\\.sellix\\.io/static/js/embed\\.js",
+			"website": "https://sellix.io/"
+		},
+		"Selly": {
+			"cats": [
+				6
+			],
+			"description": "Selly is an ecommerce payment processor. It accepts PayPal, Bitcoin, Ethereum, Litecoin, Stripe and more.",
+			"icon": "Selly.svg",
+			"scripts": "embed\\.selly\\.(?:gg|io)",
+			"website": "https://selly.io/"
+		},
 		"Semantic UI": {
 			"cats": [
 				66
@@ -12029,6 +12345,18 @@
 				"og:image": "https\\:\\/\\/img\\.shoplineapp\\.com"
 			},
 			"website": "https://shoplineapp.com/"
+		},
+		"Shoppy": {
+			"cats": [
+				6
+			],
+			"description": "Shoppy is an all-in-one payment processing and ecommerce solution.",
+			"icon": "Shoppy.svg",
+			"js": {
+				"Shoppy": ""
+			},
+			"scripts": "\\.shoppy\\.gg",
+			"website": "https://shoppy.gg"
 		},
 		"Shoptet": {
 			"cats": [
@@ -12538,7 +12866,7 @@
 			"cats": [
 				1
 			],
-			"icon": "default.svg",
+			"icon": "Sotel.png",
 			"meta": {
 				"generator": "sotel"
 			},
@@ -12730,6 +13058,17 @@
 			"scripts": "statcounter\\.com/counter/counter",
 			"website": "http://www.statcounter.com"
 		},
+		"Statically": {
+			"cats": [
+				31
+			],
+			"headers": {
+				"Server": "^statically$"
+			},
+			"html": "<link [^>]*?href=\"?[a-z]*?:?//cdn\\.statically\\.io/",
+			"icon": "Statically.svg",
+			"website": "https://statically.io"
+		},
 		"Stimulus": {
 			"cats": [
 				12
@@ -12814,10 +13153,10 @@
 				"__stripe_mid": "",
 				"__stripe_sid": ""
 			},
+			"description": "Stripe offers online payment processing for internet businesses as well as fraud prevention, invoicing and subscription management.",
 			"dns": {
 				"TXT": "stripe-verification="
 			},
-			"description": "Stripe offers online payment processing for internet businesses as well as fraud prevention, invoicing and subscription management.",
 			"html": "<input[^>]+data-stripe",
 			"icon": "Stripe.svg",
 			"js": {
@@ -13439,6 +13778,16 @@
 			"scripts": "timeplot.*\\.js",
 			"website": "http://www.simile-widgets.org/timeplot/"
 		},
+		"Timify": {
+			"cats": [
+				72,
+				61
+			],
+			"description": "The Online Scheduling and Resource Management Software.",
+			"icon": "Timify.svg",
+			"scripts": "https://widget\\.timify\\.com/js/widget\\.js",
+			"website": "https://www.timify.com/"
+		},
 		"TinyMCE": {
 			"cats": [
 				24
@@ -13548,6 +13897,15 @@
 			"icon": "tray.png",
 			"scripts": "tcdn\\.com\\.br",
 			"website": "https://www.tray.com.br"
+		},
+		"Tripadviser.Widget": {
+			"cats": [
+				5
+			],
+			"description": "Tripadvisor embed reviews widget.",
+			"icon": "Tripadviser.Widget.svg",
+			"scripts": "tripadvisor\\.[\\w]+/WidgetEmbed",
+			"website": "https://www.tripadvisor.com/Widgets"
 		},
 		"TrustArc": {
 			"cats": [
@@ -13678,6 +14036,7 @@
 				17
 			],
 			"description": "Typekit is an online service which offers a subscription library of fonts.",
+			"html": "<link [^>]*href=\"[^\"]+use\\.typekit\\.(?:net|com)",
 			"icon": "Typekit.png",
 			"js": {
 				"Typekit.config.js": "^(.+)$\\;version:\\1"
@@ -14720,7 +15079,7 @@
 			"cats": [
 				6
 			],
-			"description": "WooCommerce is an open-source e-commerce plugin for WordPress.",
+			"description": "WooCommerce is an open-source ecommerce plugin for WordPress.",
 			"html": [
 				"<!-- WooCommerce",
 				"<link rel='[^']+' id='woocommerce-(?:layout|smallscreen|general)-css'  href='https?://[^/]+/wp-content/plugins/woocommerce/assets/css/woocommerce(?:-layout|-smallscreen)?\\.css?ver=([\\d.]+)'\\;version:\\1"
@@ -15094,6 +15453,19 @@
 			},
 			"scripts": "https?://an\\.yandex\\.ru/",
 			"website": "http://partner.yandex.com"
+		},
+		"Yandex.Messenger": {
+			"cats": [
+				5,
+				52
+			],
+			"description": "Yandex.Messenger is an instant messaging application.",
+			"icon": "Yandex.Messenger.svg",
+			"js": {
+				"yandexChatWidget": ""
+			},
+			"scripts": "chat\\.s3\\.yandex\\.net/widget\\.js",
+			"website": "https://dialogs.yandex.ru"
 		},
 		"Yandex.Metrika": {
 			"cats": [

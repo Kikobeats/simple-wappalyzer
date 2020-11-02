@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.18](https://github.com/Kikobeats/simple-wappalyzer/compare/v1.1.17...v1.1.18) (2020-11-02)
+
+### [1.1.17](https://github.com/Kikobeats/simple-wappalyzer/compare/v1.1.16...v1.1.17) (2020-11-02)
+
 ### [1.1.16](https://github.com/Kikobeats/simple-wappalyzer/compare/v1.1.15...v1.1.16) (2020-10-22)
 
 ### [1.1.15](https://github.com/Kikobeats/simple-wappalyzer/compare/v1.1.14...v1.1.15) (2020-10-21)
