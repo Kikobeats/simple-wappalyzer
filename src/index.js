@@ -12,7 +12,7 @@ const { technologies, categories } = require('./technologies.json')
 const old_tech = require('./technologies.json')
 
 const fetchFirstCategory = () => {
-  old_categories = old_tech.categories
+  const old_categories = old_tech.categories
   let largestCategoryValue = 0
   for (const [key, value] of Object.entries(old_categories)) {
     //console.log(key, value);
