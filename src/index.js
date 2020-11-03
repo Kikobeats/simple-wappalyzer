@@ -108,7 +108,7 @@ module.exports = ({ url, headers, html, external }) => {
     file does not match schema.
   */
   if (external !== undefined && external !== null) {
-    new_tech = {
+    let new_tech = {
       ...old_tech
     }
 
