@@ -24,6 +24,9 @@ const fetchFirstCategory = () => {
   return largestCategoryValue + 1
 }
 
+const FirstCategory = fetchFirstCategory()
+LastCategory = FirstCategory
+
 const addNewCategories = () => {
   technologies.categories.forEach((category, index) => {
     /* console.log(index);
@@ -58,9 +61,6 @@ const addNewTechnologies = () => {
   }
   return
 }
-
-const FirstCategory = fetchFirstCategory()
-LastCategory = FirstCategory
 
 const parseCookie = str => Cookie.parse(str).toJSON()
 
