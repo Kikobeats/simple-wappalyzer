@@ -8,11 +8,8 @@ const Validator = require('jsonschema').Validator
 const schema = require('./../schema.json')
 
 const { JSDOM, VirtualConsole } = jsdom
-const toTest = require('./technologies.json')
 const { technologies, categories } = require('./technologies.json')
-
-wappalyzer.setTechnologies(technologies)
-wappalyzer.setCategories(categories)
+const { ext_technologies, ext_categories } = require('./external.json')
 
 const parseCookie = str => Cookie.parse(str).toJSON()
 
@@ -66,7 +63,12 @@ module.exports = ({ url, headers, html, external }) => {
     if (isValid !== undefined && isValid !== null) {
       if (isValid.errors.length > 0) {
         console.log(isValid.errors)
-        return false
+        wappalyzer.setTechnologies(technologies)
+        wappalyzer.setCategories(categories)
+        return 'External pacakge validation failed - please adhere to schema.json. Falling back to default technologies.json file'
+      } else {
+        wappalyzer.setTechnologies(ext_technologies)
+        wappalyzer.setCategories(ext_categories)
       }
     }
   }
@@ -86,4 +88,3 @@ module.exports = ({ url, headers, html, external }) => {
 }
 
 module.exports.getHeader = getHeader
-module.exports.getScheme = getScheme()
