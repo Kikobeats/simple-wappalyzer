@@ -11,6 +11,11 @@ const { JSDOM, VirtualConsole } = jsdom
 const { technologies, categories } = require('./technologies.json')
 const old_tech = require('./technologies.json')
 
+let new_tech = {
+  //this is the object that would be expanded upon by external detections, if provided by the user
+  ...old_tech
+}
+
 const fetchFirstCategory = () => {
   const old_categories = old_tech.categories
   let largestCategoryValue = 0
@@ -108,10 +113,6 @@ module.exports = ({ url, headers, html, external }) => {
     file does not match schema.
   */
   if (external !== undefined && external !== null) {
-    let new_tech = {
-      ...old_tech
-    }
-
     addNewCategories(external)
 
     addNewTechnologies(external)
