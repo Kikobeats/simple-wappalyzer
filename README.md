@@ -100,6 +100,66 @@ getHTML('https://kikobeats.com')
 // }
 ```
 
+## Usage with custom technologies
+
+It's possible to provide your own set of categories and technologies, in addition to those normally provided by wappalyzer. 
+Use the example below and make sure the technologies object conforms to the schema.json file located here:
+https://raw.githack.com/aliasio/wappalyzer/master/schema.json
+In case where your technologies object does not conform to the schema, the exact issue will be provided as a hint to help fix the error.
+Passing of technologies object is optional.
+Results will be exactly the same as the regular example, but will also return the custom technologies, if matched.
+
+```js
+const wappalyzer = require('simple-wappalyzer')
+const getHTML = require('html-get')
+
+const technologies =
+{
+  "categories":
+    [
+      {
+        "name": "new tech 1",
+        "priority": 9
+      },
+      {
+        "name": "new tech 2",
+        "priority": 9
+      }      
+    ],
+  "technologies":
+  {
+    "test_tech": {
+      "cats": [
+        6
+      ],
+      "html": "<h1>Example Domain</h1>",
+      "website": "example.com"
+    },
+    "test_tech2": {
+      "cats": [
+        2
+      ],
+      "html": "<!-- You found a secret link. Nice work! https://gomakethings.com/fun/ -->",
+      "website": "https://gomakethings.com/es6-foreach-loops-with-vanilla-javascript/"
+    },
+    "test_tech3": {
+      "cats": [
+        7, 4
+      ],
+      "html": "<link rel=\"stylesheet\" href=\"/w3css/4/w3.css\">",
+      "website": "https://www.w3schools.com/jsref/jsref_parseint.asp"
+    }    
+  }
+}
+
+getHTML('https://kikobeats.com')
+  .then(({ url, html, statusCode, headers, technologies }) =>
+    wappalyzer({ url, html, statusCode, headers })
+  )
+  .then(result => console.log(result))
+  
+```
+
 ## License
 
 **simple-wappalyzer** © [Kiko Beats](https://kikobeats.com), released under the [MIT](https://github.com/Kikobeats/simple-wappalyzer/blob/master/LICENSE.md) License.<br>
