@@ -9,7 +9,10 @@ const schema = require('./../schema.json')
 
 const { JSDOM, VirtualConsole } = jsdom
 const { technologies, categories } = require('./technologies.json')
-const { ext_technologies, ext_categories } = require('./external.json')
+const external = require('./external.json')
+
+const ext_technologies = external.technologies
+const ext_categories = external.categories
 
 const parseCookie = str => Cookie.parse(str).toJSON()
 
@@ -65,7 +68,7 @@ module.exports = ({ url, headers, html, external }) => {
         console.log(isValid.errors)
         wappalyzer.setTechnologies(technologies)
         wappalyzer.setCategories(categories)
-        return 'External pacakge validation failed - please adhere to schema.json. Falling back to default technologies.json file'
+        return 'External pacakge validation failed - please adhere to schema.json.'
       } else {
         wappalyzer.setTechnologies(ext_technologies)
         wappalyzer.setCategories(ext_categories)
