@@ -34,9 +34,6 @@ let LastCategory = FirstCategory
 
 const addNewCategories = external => {
   external.categories.forEach((category, index) => {
-    /* console.log(index);
-    console.log(category); */
-
     new_tech = {
       ...new_tech,
       categories: {
@@ -119,14 +116,14 @@ module.exports = ({ url, headers, html, external }) => {
 
     const v = new Validator()
     const schemaToTestAgainst = schema
-    const isValid = v.validate(external, schemaToTestAgainst)
+    const isValid = v.validate(new_tech, schemaToTestAgainst)
     if (isValid !== undefined && isValid !== null) {
       if (isValid.errors.length > 0) {
         console.log(isValid.errors)
         return 'External pacakge validation failed - please adhere to schema.json.'
       } else {
-        wappalyzer.setTechnologies(ext_technologies)
-        wappalyzer.setCategories(ext_categories)
+        wappalyzer.setTechnologies(new_tech.technologies)
+        wappalyzer.setCategories(new_tech.categories)
       }
     }
   }
