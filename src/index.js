@@ -27,8 +27,8 @@ const fetchFirstCategory = () => {
 const FirstCategory = fetchFirstCategory()
 let LastCategory = FirstCategory
 
-const addNewCategories = () => {
-  technologies.categories.forEach((category, index) => {
+const addNewCategories = external => {
+  external.categories.forEach((category, index) => {
     /* console.log(index);
     console.log(category); */
 
@@ -37,7 +37,7 @@ const addNewCategories = () => {
       categories: {
         ...new_tech.categories,
         [LastCategory.toString()]: {
-          ...technologies.categories[index]
+          ...external.categories[index]
         }
       }
     }
@@ -47,8 +47,8 @@ const addNewCategories = () => {
   return
 }
 
-const addNewTechnologies = () => {
-  for (const [key, value] of Object.entries(technologies.technologies)) {
+const addNewTechnologies = external => {
+  for (const [key, value] of Object.entries(external.technologies)) {
     new_tech = {
       ...new_tech,
       technologies: {
@@ -112,9 +112,9 @@ module.exports = ({ url, headers, html, external }) => {
       ...old_tech
     }
 
-    addNewCategories()
+    addNewCategories(external)
 
-    addNewTechnologies()
+    addNewTechnologies(external)
 
     const v = new Validator()
     const schemaToTestAgainst = schema
