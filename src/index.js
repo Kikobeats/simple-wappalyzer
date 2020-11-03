@@ -9,10 +9,58 @@ const schema = require('./../schema.json')
 
 const { JSDOM, VirtualConsole } = jsdom
 const { technologies, categories } = require('./technologies.json')
-const external = require('./external.json')
+const old_tech = require('./technologies.json')
 
-const ext_technologies = external.technologies
-const ext_categories = external.categories
+const fetchFirstCategory = () => {
+  old_categories = old_technologies.categories
+  let largestCategoryValue = 0
+  for (const [key, value] of Object.entries(old_categories)) {
+    //console.log(key, value);
+    const numeralVal = parseInt(key)
+    if (numeralVal > largestCategoryValue) {
+      largestCategoryValue = numeralVal
+    }
+  }
+  return largestCategoryValue + 1
+}
+
+const addNewCategories = () => {
+  technologies.categories.forEach((category, index) => {
+    /* console.log(index);
+    console.log(category); */
+
+    new_tech = {
+      ...new_tech,
+      categories: {
+        ...new_tech.categories,
+        [LastCategory.toString()]: {
+          ...technologies.categories[index]
+        }
+      }
+    }
+    LastCategory++
+  })
+
+  return
+}
+
+const addNewTechnologies = () => {
+  for (const [key, value] of Object.entries(technologies.technologies)) {
+    new_tech = {
+      ...new_tech,
+      technologies: {
+        ...new_tech.technologies,
+        [key]: {
+          ...value
+        }
+      }
+    }
+  }
+  return
+}
+
+const FirstCategory = fetchFirstCategory()
+LastCategory = FirstCategory
 
 const parseCookie = str => Cookie.parse(str).toJSON()
 
@@ -60,14 +108,20 @@ module.exports = ({ url, headers, html, external }) => {
     file does not match schema.
   */
   if (external !== undefined && external !== null) {
+    new_tech = {
+      ...old_tech
+    }
+
+    addNewCategories()
+
+    addNewTechnologies()
+
     const v = new Validator()
     const schemaToTestAgainst = schema
     const isValid = v.validate(external, schemaToTestAgainst)
     if (isValid !== undefined && isValid !== null) {
       if (isValid.errors.length > 0) {
         console.log(isValid.errors)
-        wappalyzer.setTechnologies(technologies)
-        wappalyzer.setCategories(categories)
         return 'External pacakge validation failed - please adhere to schema.json.'
       } else {
         wappalyzer.setTechnologies(ext_technologies)
