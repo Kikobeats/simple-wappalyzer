@@ -25,7 +25,7 @@ const fetchFirstCategory = () => {
 }
 
 const FirstCategory = fetchFirstCategory()
-LastCategory = FirstCategory
+let LastCategory = FirstCategory
 
 const addNewCategories = () => {
   technologies.categories.forEach((category, index) => {
