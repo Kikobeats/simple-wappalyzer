@@ -1,5 +1,5 @@
 'use strict'
-console.log('test')
+
 const { chain, mapValues } = require('lodash')
 const wappalyzer = require('wappalyzer-core')
 const { Cookie } = require('tough-cookie')
@@ -126,6 +126,9 @@ module.exports = ({ url, headers, html, external }) => {
         wappalyzer.setCategories(new_tech.categories)
       }
     }
+  } else {
+    wappalyzer.setTechnologies(technologies)
+    wappalyzer.setCategories(categories)
   }
 
   const dom = new JSDOM(html, { url, virtualConsole: new VirtualConsole() })
