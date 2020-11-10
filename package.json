@@ -32,7 +32,7 @@
     "jsdom": "~16.4.0",
     "lodash": "~4.17.20",
     "tough-cookie": "~4.0.0",
-    "wappalyzer-core": "~6.4.14",
+    "wappalyzer-core": "~6.4.15",
     "write-json-file": "~4.3.0"
   },
   "devDependencies": {
