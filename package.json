@@ -28,11 +28,11 @@
     "static"
   ],
   "dependencies": {
-    "got": "~11.8.0",
+    "got": "~11.8.2",
     "jsdom": "~16.4.0",
-    "lodash": "~4.17.20",
+    "lodash": "~4.17.21",
     "tough-cookie": "~4.0.0",
-    "wappalyzer-core": "~6.5.18",
+    "wappalyzer-core": "~6.5.26",
     "write-json-file": "~4.3.0"
   },
   "devDependencies": {
