@@ -29,10 +29,10 @@
   ],
   "dependencies": {
     "got": "~11.8.2",
-    "jsdom": "~16.5.0",
+    "jsdom": "~16.5.3",
     "lodash": "~4.17.21",
     "tough-cookie": "~4.0.0",
-    "wappalyzer-core": "~6.5.26",
+    "wappalyzer-core": "~6.5.33",
     "write-json-file": "~4.3.0"
   },
   "devDependencies": {
@@ -50,11 +50,11 @@
     "git-dirty": "latest",
     "html-get": "latest",
     "humanize-url": "latest",
-    "husky": "latest",
     "lint-staged": "latest",
     "npm-check-updates": "latest",
     "nyc": "latest",
     "prettier-standard": "latest",
+    "simple-git-hooks": "latest",
     "standard": "latest",
     "standard-markdown": "latest",
     "standard-version": "latest"
@@ -88,12 +88,6 @@
       "@commitlint/config-conventional"
     ]
   },
-  "husky": {
-    "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-      "pre-commit": "lint-staged"
-    }
-  },
   "lint-staged": {
     "package.json": [
       "finepack"
@@ -104,5 +98,9 @@
     "*.md": [
       "standard-markdown"
     ]
+  },
+  "simple-git-hooks": {
+    "commit-msg": "npx commitlint --edit",
+    "pre-commit": "npx lint-staged"
   }
 }
