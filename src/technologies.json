@@ -823,6 +823,26 @@
 			"scripts": "\\.ada\\.support",
 			"website": "https://www.ada.cx"
 		},
+		"Adabra": {
+			"cats": [
+				32
+			],
+			"description": "Adabra is a SaaS omnichannel marketing automation platform to help boost sales. Adabra allows you to manage user segmentation, create workflow and campaigns through email, social, SMS and more.",
+			"icon": "Adabra.svg",
+			"js": {
+				"adabraPreview": "",
+				"adabra_version_panel": "(^.+$)\\;version:\\1",
+				"adabra_version_track": "(^.+$)\\;version:\\1"
+			},
+			"pricing": [
+				"poa",
+				"recurring"
+			],
+			"saas": true,
+			"scripts": "track\\.adabra\\.com",
+			"website": "https://www.adabra.com",
+			"xhr": "my\\.adabra\\.com"
+		},
 		"Adally": {
 			"cats": [
 				68
@@ -3196,6 +3216,23 @@
 			"scripts": "bda\\.bookatable\\.com/deploy/lbui\\.direct\\.min\\.js",
 			"website": "https://www.bookatable.co.uk"
 		},
+		"Bookero": {
+			"cats": [
+				72
+			],
+			"description": "Bookero is online booking system for you website or Facebook page.",
+			"icon": "Bookero.svg",
+			"js": {
+				"bookero_config": ""
+			},
+			"pricing": [
+				"low",
+				"recurring"
+			],
+			"scripts": "cdn\\.bookero\\.pl",
+			"url": "\\.bookero\\.(?:org|pl)",
+			"website": "https://www.bookero.org"
+		},
 		"Bookingkit": {
 			"cats": [
 				5,
@@ -3648,7 +3685,7 @@
 			"icon": "Bulma.png",
 			"website": "http://bulma.io"
 		},
-		"Bumb": {
+		"Bump": {
 			"cats": [
 				4
 			],
@@ -4517,6 +4554,24 @@
 			},
 			"website": "https://www.coastercms.org"
 		},
+		"Cococart": {
+			"cats": [
+				6
+			],
+			"description": "Cococart is an ecommerce platform.",
+			"icon": "Cococart.png",
+			"dom": [
+				"meta[property='og:image'][content*='static.cococart.co']",
+				"div[style*='static.cococart.co']"
+			],
+			"saas": true,
+			"pricing": [
+				"freemium",
+				"recurring",
+				"payg"
+			],
+			"website": "https://www.cococart.co"
+		},
 		"CoconutSoftware": {
 			"cats": [
 				5,
@@ -4673,6 +4728,22 @@
 			],
 			"url": "\\.spaces.chec\\.io",
 			"website": "https://www.commercejs.com"
+		},
+		"Commerce7": {
+			"cats": [
+				6
+			],
+			"description": "Commerce7 is an ecommerce platform for wineries.",
+			"icon": "Commerce7.svg",
+			"pricing": [
+				"mid",
+				"recurring",
+				"payg"
+			],
+			"saas": true,
+			"scripts": "cdn\\.commerce7\\.com",
+			"website": "https://commerce7.com",
+			"xhr": "api\\.commerce7\\.com"
 		},
 		"Concrete5": {
 			"cats": [
@@ -5406,6 +5477,28 @@
 			"icon": "Detectify.svg",
 			"website": "https://detectify.com/"
 		},
+		"Shuttle": {
+			"cats": [
+				1
+			],
+			"description": "Shuttle is a website development platform.",
+			"icon": "Devisto.svg",
+			"implies": [
+				"Laravel",
+				"PHP",
+				"Amazon Web Services"
+			],
+			"js": {
+				"Shuttle.FrontApp": ""
+			},
+			"scripts": "shuttle(?:-assets-new|-storage)\\.s3\\.amazonaws\\.com",
+			"saas": true,
+			"pricing": [
+				"low",
+				"recurring"
+			],
+			"website": "https://www.devisto.com"
+		},
 		"Didomi": {
 			"cats": [
 				67
@@ -6072,6 +6165,14 @@
 			"icon": "EdgeCast.png",
 			"url": "https?://(?:[^/]+\\.)?edgecastcdn\\.net/",
 			"website": "http://www.edgecast.com"
+		},
+		"Elasticsearch": {
+			"cats": [
+				29
+			],
+			"description": "Elasticsearch is a search engine based on the Lucene library. It provides a distributed, multitenant-capable full-text search engine with an HTTP web interface and schema-free JSON documents.",
+			"icon": "Elasticsearch.svg",
+			"website": "https://www.elastic.co"
 		},
 		"Elcodi": {
 			"cats": [
@@ -10000,7 +10101,10 @@
 			},
 			"html": "<title>Kibana</title>",
 			"icon": "kibana.svg",
-			"implies": "Node.js",
+			"implies": [
+				"Node.js",
+				"Elasticsearch"
+			],
 			"url": "kibana#/dashboard/",
 			"website": "http://www.elastic.co/products/kibana"
 		},
@@ -10662,7 +10766,7 @@
 				"x-litespeed-cache": ""
 			},
 			"icon": "litespeed-cache.png",
-			"implies": "WordPress",
+			"implies": "LiteSpeed",
 			"website": "https://wordpress.org/plugins/litespeed-cache/"
 		},
 		"Lithium": {
@@ -12890,6 +12994,29 @@
 			"implies": "PHP",
 			"website": "https://www.oxid-esales.com"
 		},
+		"Occasion": {
+			"cats": [
+				72
+			],
+			"description": "Occasion is an online booking system.",
+			"dom": [
+				"iframe[src*='app.getoccasion.com']",
+				"a[href*='app.getoccasion.com']"
+			],
+			"icon": "Occasion.png",
+			"js": {
+				"OCCSN.stack": "",
+				"occsnMerchantToken": ""
+			},
+			"pricing": [
+				"low",
+				"payg",
+				"recurring"
+			],
+			"saas": true,
+			"scripts": "app\\.getoccasion\\.com",
+			"website": "https://www.getoccasion.com"
+		},
 		"Ochanoko": {
 			"cats": [
 				6
@@ -14805,6 +14932,21 @@
 			"scripts": "provenexpert\\.\\w+/widget",
 			"website": "https://www.provenexpert.com"
 		},
+		"Provide Support": {
+			"cats": [
+				52
+			],
+			"description": "Provide Support is a SaaS for customer service that includes live chat, real-time website monitoring, chat statistics.",
+			"icon": "Provide Support.svg",
+			"scripts": "\\.providesupport\\.com",
+			"saas": true,
+			"pricing": [
+				"low",
+				"recurring",
+				"payg"
+			],
+			"website": "https://www.providesupport.com"
+		},
 		"Proximis": {
 			"cats": [
 				5,
@@ -15603,6 +15745,26 @@
 			"scripts": "www\\.resengo\\.\\w+",
 			"website": "https://wwc.resengo.com"
 		},
+		"Reservio": {
+			"cats": [
+				72
+			],
+			"description": "Reservio is a cloud-based appointment scheduling and online booking solution.",
+			"dom": [
+				".reservio-booking-button",
+				"a[href*='.reservio.com'][target='_blank']",
+				"a[href*='bookings.reservio.com']"
+			],
+			"icon": "Reservio.svg",
+			"pricing": [
+				"freemium",
+				"recurring",
+				"low"
+			],
+			"saas": true,
+			"scripts": "static\\.reservio\\.com",
+			"website": "https://www.reservio.com"
+		},
 		"Resin": {
 			"cats": [
 				22
@@ -16180,6 +16342,31 @@
 			],
 			"icon": "SQLite.png",
 			"website": "http://www.sqlite.org"
+		},
+		"STUDIO": {
+			"cats": [
+				51
+			],
+			"description": "STUDIO is a Japan-based company and SaaS application for designing and hosting websites. The service includes a visual editor with built-in CMS and analytics.",
+			"dom": ".StudioCanvas, .publish-studio-style",
+			"icon": "STUDIO.svg",
+			"implies": [
+				"Vue.js",
+				"Nuxt.js",
+				"Firebase",
+				"Google Cloud",
+				"Google Tag Manager"
+			],
+			"meta": {
+				"generator": "^STUDIO$"
+			},
+			"pricing": [
+				"low",
+				"recurring",
+				"freemium"
+			],
+			"saas": true,
+			"website": "https://studio.design"
 		},
 		"SUSE": {
 			"cats": [
@@ -21938,6 +22125,20 @@
 			"icon": "Zipkin.png",
 			"website": "https://zipkin.io/"
 		},
+		"Zocdoc": {
+			"cats": [
+				72
+			],
+			"description": "Zocdoc is a New York City-based company offering an online service that allows people to find and book in-person or telemedicine appointments for medical or dental care.",
+			"dom": "a[href*='www.zocdoc.com'][target='_blank']",
+			"icon": "Zocdoc.svg",
+			"pricing": [
+				"payg"
+			],
+			"saas": true,
+			"scripts": "offsiteschedule\\.zocdoc\\.com",
+			"website": "https://www.zocdoc.com"
+		},
 		"Zoey": {
 			"cats": [
 				6
@@ -22521,11 +22722,7 @@
 			"js": {
 				"jQuery.fn.jquery": "([\\d.]+)\\;version:\\1"
 			},
-			"scripts": [
-				"jquery[.-]([\\d.]*\\d)[^/]*\\.js\\;version:\\1",
-				"/([\\d.]+)/jquery(?:\\.min)?\\.js\\;version:\\1",
-				"jquery.*\\.js(?:\\?ver(?:sion)?=([\\d.]+))?\\;version:\\1"
-			],
+			"scripts": "jquery",
 			"website": "https://jquery.com"
 		},
 		"jQuery DevBridge Autocomplete": {
@@ -23377,6 +23574,24 @@
 				"generator": "webEdition"
 			},
 			"website": "http://webedition.de/en"
+		},
+		"WebEngage": {
+			"cats": [
+				32,
+				76
+			],
+			"description": "WebEngage is a customer data platform and marketing automation suite.",
+			"icon": "WebEngage.png",
+			"js": {
+				"webengage.__v": "([\\d.]+)\\;version:\\1"
+			},
+			"scripts": "\\.webengage\\.co(?:m)?/",
+			"saas": true,
+			"pricing": [
+				"mid",
+				"recurring"
+			],
+			"website": "https://webengage.com"
 		},
 		"webpack": {
 			"cats": [
