@@ -47,10 +47,10 @@ const getMeta = document =>
     return acc
   }, {})
 
-module.exports = ({ url, headers, html }) => {
+module.exports = async ({ url, headers, html }) => {
   const dom = new JSDOM(html, { url, virtualConsole: new VirtualConsole() })
 
-  const detections = wappalyzer.analyze({
+  const detections = await wappalyzer.analyze({
     url,
     meta: getMeta(dom.window.document),
     headers: getHeaders(headers),
