@@ -1,10 +1,7 @@
 # simple-wappalyzer
 
 ![Last version](https://img.shields.io/github/tag/Kikobeats/simple-wappalyzer.svg?style=flat-square)
-[![Build Status](https://img.shields.io/travis/com/Kikobeats/simple-wappalyzer/master.svg?style=flat-square)](https://travis-ci.com/Kikobeats/simple-wappalyzer)
 [![Coverage Status](https://img.shields.io/coveralls/Kikobeats/simple-wappalyzer.svg?style=flat-square)](https://coveralls.io/github/Kikobeats/simple-wappalyzer)
-[![Dependency status](https://img.shields.io/david/Kikobeats/simple-wappalyzer.svg?style=flat-square)](https://david-dm.org/Kikobeats/simple-wappalyzer)
-[![Dev Dependencies Status](https://img.shields.io/david/dev/Kikobeats/simple-wappalyzer.svg?style=flat-square)](https://david-dm.org/Kikobeats/simple-wappalyzer#info=devDependencies)
 [![NPM Status](https://img.shields.io/npm/dm/simple-wappalyzer.svg?style=flat-square)](https://www.npmjs.org/package/simple-wappalyzer)
 
 > A simple way to interacting with [Wappalyzer](https://www.wappalyzer.com).
