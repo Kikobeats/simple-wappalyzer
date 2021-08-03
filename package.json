@@ -47,7 +47,7 @@
     "finepack": "latest",
     "git-authors-cli": "latest",
     "html-get": "latest",
-    "humanize-url": "2",
+    "humanize-url": "3",
     "lint-staged": "latest",
     "npm-check-updates": "latest",
     "nyc": "latest",
