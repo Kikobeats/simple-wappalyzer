@@ -5,7 +5,7 @@ const got = require('got')
 
 const main = async () => {
   const technologies = await got(
-    'https://raw.githack.com/aliasio/wappalyzer/master/src/technologies.json'
+    'https://cdn.jsdelivr.net/gh/aliasio/wappalyzer@master/src/technologies.json'
   ).json()
 
   await writeJsonFile('src/technologies.json', technologies)
