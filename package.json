@@ -43,7 +43,7 @@
     "ci-publish": "latest",
     "conventional-github-releaser": "latest",
     "exists-file": "latest",
-    "filenamify-url": "2",
+    "filenamify-url": "3",
     "finepack": "latest",
     "git-authors-cli": "latest",
     "html-get": "latest",
