@@ -7,7 +7,8 @@ const jsdom = require('jsdom')
 
 const { JSDOM, VirtualConsole } = jsdom
 
-const { technologies, categories } = require('./technologies.json')
+const technologies = require('./technologies.json')
+const categories = require('./categories.json')
 
 wappalyzer.setTechnologies(technologies)
 wappalyzer.setCategories(categories)
