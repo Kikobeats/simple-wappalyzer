@@ -22,7 +22,7 @@ $ npm install simple-wappalyzer --save
 const wappalyzer = require('simple-wappalyzer')
 const getHTML = require('html-get')
 
-getHTML('https://kikobeats.com')
+getHTML('https://kikobeats.com', { getBrowserless: require('browserless') })
   .then(({ url, html, statusCode, headers }) =>
     wappalyzer({ url, html, statusCode, headers })
   )
