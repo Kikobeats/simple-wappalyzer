@@ -1,7 +1,7 @@
 {
   "name": "simple-wappalyzer",
   "description": "A simple way to interacting with Wappalyzer.",
-  "homepage": "https://nicedoc.io/Kikobeats/simple-wappalyzer",
+  "homepage": "https://github.com/Kikobeats/simple-wappalyzer",
   "version": "1.1.44",
   "main": "src/index.js",
   "author": {
@@ -66,11 +66,11 @@
   ],
   "scripts": {
     "clean": "rm -rf node_modules",
-    "contributors": "(git-authors-cli && finepack && git add package.json && git commit -m 'build: contributors' --no-verify) || true",
+    "contributors": "(npx git-authors-cli && npx finepack && git add package.json && git commit -m 'build: contributors' --no-verify) || true",
     "lint": "standard-markdown README.md && standard",
     "postinstall": "node scripts/postinstall",
     "postrelease": "npm run release:tags && npm run release:github && (ci-publish || npm publish --access=public)",
-    "prerelease": "npm run update:check && npm run contributors",
+    "prerelease": "npm run update:check",
     "pretest": "npm run lint",
     "release": "standard-version -a",
     "release:github": "conventional-github-releaser -p angular",
@@ -80,6 +80,9 @@
     "update:check": "ncu -- --error-level 2"
   },
   "license": "MIT",
+  "ava": {
+    "workerThreads": false
+  },
   "commitlint": {
     "extends": [
       "@commitlint/config-conventional"

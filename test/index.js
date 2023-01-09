@@ -5,7 +5,7 @@ const filenamifyUrl = require('filenamify-url')
 const humanizeUrl = require('humanize-url')
 const existsFile = require('exists-file')
 const getHTML = require('html-get')
-const fs = require('fs').promises
+const fs = require('fs/promises')
 const path = require('path')
 
 const test = require('ava')
