@@ -35,6 +35,6 @@ const fetchCategories = async () => {
   return writeJsonFile('src/categories.json', categories)
 }
 
-Promise.all([fetchTechnologies(), fetchCategories()])
-  .catch(err => console.error(err) && process.exit(0))
-  .then(process.exit)
+Promise.all([fetchTechnologies(), fetchCategories()]).catch(error =>
+  console.error(error)
+)
