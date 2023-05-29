@@ -28,7 +28,7 @@
     "static"
   ],
   "dependencies": {
-    "got": "~11.8.6",
+    "got": "~13.0.0",
     "jsdom": "~22.0.0",
     "lodash": "~4.17.21",
     "tough-cookie": "~4.1.2",
