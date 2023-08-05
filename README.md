@@ -97,6 +97,10 @@ getHTML('https://kikobeats.com', { getBrowserless: require('browserless') })
 // }
 ```
 
+### Categories & Technologies
+
+Category and technology information is mirrored from the wappalyzer repository and stored in `src/*.json`. You do not need to source category and technology information when using this library.
+
 ## License
 
 **simple-wappalyzer** © [Kiko Beats](https://kikobeats.com), released under the [MIT](https://github.com/Kikobeats/simple-wappalyzer/blob/master/LICENSE.md) License.<br>
