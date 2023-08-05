@@ -4,7 +4,7 @@
 [![Coverage Status](https://img.shields.io/coveralls/Kikobeats/simple-wappalyzer.svg?style=flat-square)](https://coveralls.io/github/Kikobeats/simple-wappalyzer)
 [![NPM Status](https://img.shields.io/npm/dm/simple-wappalyzer.svg?style=flat-square)](https://www.npmjs.org/package/simple-wappalyzer)
 
-> A simple way to interacting with [Wappalyzer](https://www.wappalyzer.com).
+> A simple, pre-cached, ready-to-use way to interact with [Wappalyzer](https://www.wappalyzer.com).
 
 Although Wappalyzer has an [official library](https://github.com/AliasIO/wappalyzer), it performs network requests operations under the hood.
 
