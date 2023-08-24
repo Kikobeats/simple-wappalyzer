@@ -32,7 +32,7 @@
     "jsdom": "~22.1.0",
     "lodash": "~4.17.21",
     "tough-cookie": "~4.1.2",
-    "wappalyzer-core": "~6.10.62",
+    "wappalyzer-core": "~6.10.66",
     "write-json-file": "~4.3.0"
   },
   "devDependencies": {
@@ -68,7 +68,6 @@
     "clean": "rm -rf node_modules",
     "contributors": "(npx git-authors-cli && npx finepack && git add package.json && git commit -m 'build: contributors' --no-verify) || true",
     "lint": "standard-markdown README.md && standard",
-    "postinstall": "node scripts/postinstall",
     "postrelease": "npm run release:tags && npm run release:github && (ci-publish || npm publish --access=public)",
     "prerelease": "npm run update:check",
     "pretest": "npm run lint",
