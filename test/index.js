@@ -3,9 +3,9 @@
 const writeJsonFile = require('write-json-file')
 const filenamifyUrl = require('filenamify-url')
 const humanizeUrl = require('humanize-url')
-const existsFile = require('exists-file')
+const { readFile } = require('fs/promises')
+const { existsSync } = require('fs')
 const getHTML = require('html-get')
-const fs = require('fs/promises')
 const path = require('path')
 
 const test = require('ava')
@@ -15,8 +15,7 @@ const wappalyzer = require('../src')
 const getFixture = async (url, opts) => {
   const filename = filenamifyUrl(url)
   const filepath = path.resolve(__dirname, 'fixtures', filename)
-  const hasFixture = await existsFile(filepath)
-  if (hasFixture) return JSON.parse(await fs.readFile(filepath, 'utf-8'))
+  if (existsSync(filepath)) return JSON.parse(await readFile(filepath, 'utf-8'))
   const result = await getHTML(url, opts)
   await writeJsonFile(filepath, result)
 }

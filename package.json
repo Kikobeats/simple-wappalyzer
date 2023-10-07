@@ -44,7 +44,6 @@
     "c8": "latest",
     "ci-publish": "latest",
     "conventional-github-releaser": "latest",
-    "exists-file": "latest",
     "filenamify-url": "2",
     "finepack": "latest",
     "git-authors-cli": "latest",
@@ -85,7 +84,7 @@
     ]
   },
   "nano-staged": {
-    "*.js,!*.min.js,": [
+    "*.js": [
       "prettier-standard",
       "standard --fix"
     ],
