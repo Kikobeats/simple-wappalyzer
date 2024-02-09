@@ -11,7 +11,7 @@ const fetchTechnologies = async () => {
   const data = await Promise.all(
     chars.map(char =>
       got(
-        `https://raw.githubusercontent.com/wappalyzer/wappalyzer/master/src/technologies/${char}.json`
+        `https://raw.githubusercontent.com/enthec/webappanalyzer/main/src/technologies/${char}.json`
       ).json()
     )
   )
@@ -29,7 +29,7 @@ const fetchTechnologies = async () => {
 
 const fetchCategories = async () => {
   const categories = await got(
-    'https://raw.githubusercontent.com/wappalyzer/wappalyzer/master/src/categories.json'
+    'https://raw.githubusercontent.com/enthec/webappanalyzer/main/src/categories.json'
   ).json()
 
   return writeJsonFile('src/categories.json', categories)
