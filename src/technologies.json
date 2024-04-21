@@ -10089,6 +10089,20 @@
 		"saas": true,
 		"website": "https://circle.so"
 	},
+	"Citizen Space": {
+		"cats": [
+			1
+		],
+		"description": "Next-generation engagement tools for 21st century democracy.",
+		"dom": "a[href='https://www.delib.net/citizen_space']",
+		"icon": "CitizenSpace.png",
+		"pricing": [
+			"payg"
+		],
+		"saas": true,
+		"scriptSrc": "/static/vendor/dlb-admin-ui/",
+		"website": "https://www.delib.net/citizen_space"
+	},
 	"CitrusPay": {
 		"cats": [
 			41
@@ -12184,6 +12198,17 @@
 		"scriptSrc": "consent\\.cookiebot\\.com",
 		"website": "https://www.cookiebot.com"
 	},
+	"Cool Timeline": {
+		"cats": [
+			5,
+			87
+		],
+		"description": "Creates vertical and horizontal history timeline blocks.",
+		"dom": "link[href*='/plugins/cool-timeline/'], script[src*='/cool-timeline/'], .cooltimeline-body",
+		"oss": true,
+		"requires": "WordPress",
+		"website": "https://wordpress.org/plugins/cool-timeline"
+	},
 	"Cooladata": {
 		"cats": [
 			97
@@ -12269,6 +12294,18 @@
 		],
 		"website": "https://corebine.com"
 	},
+	"Cornerstone": {
+		"cats": [
+			5,
+			87
+		],
+		"description": "Enhanced content management for WordPress.",
+		"dom": "#cornerstone-generated-css",
+		"oss": true,
+		"requires": "WordPress",
+		"scriptSrc": "cornerstone(?:\\/assets)?(?:\\/js)?(?:\\/site)?(?:\\/cs-classic)?\\.?((?:\\d+\\.)+\\d+)?\\.js\\;version:\\1",
+		"website": "https://wordpress.org/plugins/cornerstone"
+	},
 	"Correos": {
 		"cats": [
 			99
@@ -12338,6 +12375,17 @@
 		},
 		"icon": "CouchDB.png",
 		"website": "https://couchdb.apache.org"
+	},
+	"Countdown Timer Ultimate": {
+		"cats": [
+			5,
+			87
+		],
+		"description": "Add and display responsive Countdown timer on your website.",
+		"dom": "link[href*='/wp-content/plugins/countdown-timer-ultimate/']",
+		"oss": true,
+		"requires": "WordPress",
+		"website": "https://wordpress.org/plugins/countdown-timer-ultimate"
 	},
 	"Countly": {
 		"cats": [
@@ -12516,6 +12564,23 @@
 		],
 		"saas": true,
 		"website": "https://www.cratejoy.com"
+	},
+	"Crayon Syntax Highlighter": {
+		"cats": [
+			5,
+			87
+		],
+		"description": "Syntax Highlighter supporting multiple languages, themes, fonts, highlighting from a URL, local file or post text.",
+		"dom": "link#crayon-css, link#crayon",
+		"js": {
+			"CrayonSyntaxSettings": "",
+			"CrayonSyntaxStrings": "",
+			"CrayonTagEditorSettings": ""
+		},
+		"oss": true,
+		"requires": "WordPress",
+		"scriptSrc": "crayon-syntax-highlighter(?:\\/js)?(?:\\/min)?(?:\\/crayon)?(?:\\.te)?(?:\\.min)?\\.js(?:\\?v(?:er)?=_((?:\\d+\\.)+\\d+))?\\;version:\\1",
+		"website": "https://wordpress.org/plugins/crayon-syntax-highlighter/"
 	},
 	"Crazy Egg": {
 		"cats": [
@@ -12877,6 +12942,17 @@
 		"scriptSrc": "/wp-content/plugins/custom-fonts/",
 		"website": "https://github.com/brainstormforce/custom-fonts"
 	},
+	"Custom Twitter Feeds": {
+		"cats": [
+			5,
+			87
+		],
+		"description": "Custom Twitter Feeds for Wordpress.",
+		"dom": "link[href*='/wp-content/plugins/custom-twitter-feeds/']",
+		"requires": "WordPress",
+		"scriptSrc": "custom-twitter-feeds(?:\\/js)?(?:\\/ctf-scripts)?(?:\\.min)?\\.js(?:\\?v(?:er)?=((?:\\d+\\.)+\\d+))?\\;version:\\1",
+		"website": "https://wordpress.org/plugins/custom-twitter-feeds"
+	},
 	"Customer.io": {
 		"cats": [
 			32
@@ -13161,7 +13237,7 @@
 		"js": {
 			"d3.version": "^(.+)$\\;version:\\1"
 		},
-		"scriptSrc": "/d3(?:\\. v\\d+)?(?:\\.min)?\\.js",
+		"scriptSrc": "/d3(?:\\.v\\d+)?(?:\\.min)?\\.js",
 		"website": "https://d3js.org"
 	},
 	"DDoS-Guard": {
@@ -13549,6 +13625,19 @@
 		],
 		"saas": true,
 		"website": "https://www.datamilk.ai"
+	},
+	"Datascape": {
+		"cats": [
+			1
+		],
+		"description": "Datascape is a cloud-based solution designed to create new ways for councils to work and better engage with their communities.",
+		"dom": "link[href*='cdn-sites.datascape.cloud']",
+		"icon": "Datascape.svg",
+		"pricing": [
+			"poa"
+		],
+		"saas": true,
+		"website": "https://datacom.com/nz/en/products/datascape"
 	},
 	"DataTables": {
 		"cats": [
@@ -15180,6 +15269,16 @@
 		"scriptSrc": "cdn(?:-eu)?\\.dynamicyield\\.\\w+/",
 		"website": "https://www.dynamicyield.com"
 	},
+	"Dynamics.js": {
+		"cats": [
+			59
+		],
+		"description": "Javascript library to create physics-related animations",
+		"icon": "Dynamics.js.png",
+		"oss": true,
+		"scriptSrc": "dynamics(?:\\.min)?\\.js(?:\\?v(?:er)?=((?:\\d+\\.)+\\d+))?\\;version:\\1",
+		"website": "https://dynamicsjs.com"
+	},
 	"Dynamicweb": {
 		"cats": [
 			1,
@@ -15574,6 +15673,15 @@
 		"saas": true,
 		"website": "https://www.easy-orders.net",
 		"xhr": "api\\.easy-orders\\.net/"
+	},
+	"Easy Pie Chart": {
+		"cats": [
+			59
+		],
+		"description": "Lightweight jQuery plugin to render and animate nice pie charts with the HTML5 canvas element.",
+		"oss": true,
+		"scriptSrc": "[Ee]asy-?[Pp]ie-?[Cc]hart(?:\\.min)?\\.js",
+		"website": "https://rendro.github.io/easy-pie-chart/"
 	},
 	"Easy Redirects": {
 		"cats": [
@@ -16027,6 +16135,7 @@
 		"scriptSrc": "/wp-content/plugins/elementor(?:-pro)?/.+frontend-modules\\.min\\.js(?:\\?ver=(\\d+(?:\\.\\d+)+))?\\;version:\\1",
 		"website": "https://elementor.com"
 	},
+	"Elementor Addon Elements": "WordPress",
 	"Elementor Cloud": {
 		"cats": [
 			88
@@ -16251,6 +16360,19 @@
 		"scriptSrc": "elqCfg\\.js",
 		"website": "https://eloqua.com"
 	},
+	"Email Encoder for Wordpress": {
+		"cats": [
+			5,
+			87
+		],
+		"description": "Protect email addresses and phone numbers from spambots.",
+		"dom": "link#eeb-css-frontend-css, link[href*='/wp-content/plugins/email-encoder-bundle/']",
+		"icon": "Email Encoder for Wordpress.png",
+		"oss": true,
+		"requires": "WordPress",
+		"scriptSrc": "email-encoder-bundle(?:\\/core)?(?:\\/includes)?(?:\\/assets)?(?:\\/js)?(?:\\/custom)?(?:\\/encoder-form)?\\.js",
+		"website": "https://wordpress.org/plugins/email-encoder-bundle"
+	},
 	"EmailJS": {
 		"cats": [
 			75
@@ -16301,6 +16423,18 @@
 		"saas": true,
 		"website": "https://www.ematicsolutions.com"
 	},
+	"Embed Any Document": {
+		"cats": [
+			5,
+			87
+		],
+		"description": "Embed PDF, DOC, PPT and XLS documents easily on your WordPress website.",
+		"dom": "#awsm-ead-public-css, link[href*='/wp-content/plugins/embed-any-document/']",
+		"oss": true,
+		"requires": "WordPress",
+		"scriptSrc": "embed-any-document(?:\\/js)?(?:\\/embed-public)?(?:\\/pdfobject)?(?:\\.min)?\\.js(?:\\?v(?:er)?=((?:\\d+\\.)+\\d+))?\\;version:\\1",
+		"website": "https://wordpress.org/plugins/embed-any-document"
+	},
 	"EmbedPlus": {
 		"cats": [
 			87
@@ -16314,6 +16448,19 @@
 		"requires": "WordPress",
 		"scriptSrc": "/wp-content/plugins/youtube-embed-plus(?:-pro)?/.+\\.js(?:\\?ver=(\\d+(?:\\.\\d+)+))?\\;version:\\1",
 		"website": "https://www.embedplus.com"
+	},
+	"EmbedPress": {
+		"cats": [
+			5,
+			87
+		],
+		"description": "Embed videos, images, posts, audio, maps and upload PDF, DOC, PPT in Wordpress.",
+		"dom": "#embedpress-css, #embedpress-elementor-css-css, #embedpress_blocks-cgb-style-css-css, link[href*='/wp-content/plugins/embedpress/']",
+		"icon": "EmbedPress.png",
+		"oss": true,
+		"requires": "WordPress",
+		"scriptSrc": "embedpress(?:\\/assets)?(?:\\/js)?(?:\\/ads)?(?:\\/pdfobject)?(?:\\/front)?(?:\\/documents-viewer-script)?(?:\\/vimeo-player)?(?:\\/initplyr)?(?:\\/plyr)?(?:\\.polyfilled)?(?:\\.min)?\\.js(?:\\?v(?:er)?=((?:\\d+\\.)+\\d+))?\\;version:\\1",
+		"website": "https://wordpress.org/plugins/embedpress"
 	},
 	"EmbedSocial": {
 		"cats": [
@@ -16448,6 +16595,15 @@
 		"oss": true,
 		"requires": "WordPress",
 		"website": "https://github.com/bluehost/endurance-page-cache"
+	},
+	"EngagementHQ": {
+		"cats": [
+			1
+		],
+		"description": "Essential software for changemakers. Facilitate, centralize, and analyze two-way conversations between you and your community.",
+		"icon": "EngagementHQ.svg",
+		"dom": "link[href*='ehq-production-']",
+		"website": "https://granicus.com/solution/govdelivery/engagementhq/"
 	},
 	"Engagio": {
 		"cats": [
@@ -16760,6 +16916,24 @@
 		],
 		"saas": true,
 		"website": "https://errorception.com"
+	},
+	"EspoCRM": {
+		"cats": [
+			10,
+			53
+		],
+		"description": "Open Source CRM Software.",
+		"dom": "meta[content*='EspoCRM'], link[href*='/espo/']",
+		"icon": "EspoCRM.svg",
+		"oss": true,
+		"pricing": [
+			"low",
+			"mid",
+			"freemium",
+			"recurring"
+		],
+		"scriptSrc": "espo(?:\\.min)?\\.js",
+		"website": "https://www.espocrm.com/"
 	},
 	"Essent SiteBuilder Pro": {
 		"cats": [
@@ -18100,6 +18274,18 @@
 		"scriptSrc": "cdn\\.usefathom\\.com/",
 		"website": "https://usefathom.com"
 	},
+	"Faveo": {
+		"cats": [
+			1,
+			104
+		],
+		"description": "Open source help desk system and ticket management tool.",
+		"dom": "link[href*='/lb-faveo/']",
+		"icon": "Faveo.png",
+		"oss": true,
+		"scriptSrc": "faveo(?:\\/js)?(?:\\/jquery)?(?:\\/know)?(?:\\/mobilemenu)?(?:\\/plugins)?(?:\\/bootstrap)?(?:\\/superfish)?(?:\\/iCheck\\/icheck)?(?:-wysihtml5\\/bootstrap3-wysihtml5)?(?:\\.all)?(?:\\.rating)?(?:\\.pack)?((?:\\d+\\.)+\\d+)?(?:\\.min)?\\.js\\;version:\\1",
+		"website": "https://faveohelpdesk.com"
+	},
 	"Fbits": {
 		"cats": [
 			6
@@ -18720,6 +18906,16 @@
 		"saas": true,
 		"scriptSrc": "\\.flocktory\\.com/",
 		"website": "https://www.flocktory.com"
+	},
+	"Flot": {
+		"cats": [
+			59
+		],
+		"description": "Attractive Javascript plotting for jQuery.",
+		"icon": "Flot.png",
+		"oss": true,
+		"scriptSrc": "(?:((?:\\d+\\.)+\\d+)\\/(?:jquery\\.)?)?flot(?:\\/curvedLines)?(?:\\/excanvas)?(?:\\/jquery)?(?:\\.categories)?(?:\\.pack)?(?:\\.pie)?(?:\\.resize)?(?:\\.selection)?(?:\\.spline)?(?:\\.symbol)?(?:\\.time)?(?:\\.tooltip)?(?:\\.min)?\\.js(?:\\?v(?:er)?=((?:\\d+\\.)+\\d+))?\\;version:\\1\\2",
+		"website": "https://flotcharts.org/"
 	},
 	"Flow": {
 		"cats": [
@@ -20089,6 +20285,18 @@
 		"saas": true,
 		"website": "https://platform.fynd.com"
 	},
+	"framework7": {
+		"cats": [
+			59,
+			66
+		],
+		"description": "Full Featured Mobile HTML Framework For Building iOS & Android Apps.",
+		"dom": "link[href*='framework7'], .framework7-root, .framework7-modals",
+		"icon": "framework7.png",
+		"oss": true,
+		"scriptSrc": "(?:((?:\\d+\\.)+\\d+)\\/(?:js\\/)?)?framework7(?:-((?:\\d+\\.)+\\d+))?(?:\\.custom)?(?:\\.min)?(?:-vue)?_?[\\w\\.]{0,29}\\.js\\;version:\\1\\2",
+		"website": "https://framework7.io/"
+	},
 	"fullPage.js": {
 		"cats": [
 			59
@@ -20505,12 +20713,12 @@
 			},
 			"link[id*='generate-style']": {
 				"attributes": {
-					"href": "generatepress\\S*\\.css(?:\\?ver=([0-9.]+))?\\;version:\\1"
+					"href": "generatepress(?:(?:%20)?_?child)?(?:\\/assets)?(?:\\/css)?(?:\\/js)?(?:\\/accordion){0,2}(?:\\/all)?(?:\\/components)?(?:\\/font-icons)?(?:\\/mobile)?(?:\\/slick){0,2}(?:\\/style)?(?:\\/unsemantic-grid)?(?:\\/csd)?(?:-theme)?(?:\\.min)?\\.css(?:\\?v(?:er)?=((?:\\d+\\.)+\\d+))?\\;version:\\1"
 				}
 			},
 			"link[id*='generatepress']": {
 				"attributes": {
-					"href": "generatepress\\S*\\.css(?:\\?ver=([0-9.]+))?\\;version:\\1"
+					"href": "generatepress(?:(?:%20)?_?child)?(?:\\/assets)?(?:\\/css)?(?:\\/js)?(?:\\/accordion){0,2}(?:\\/all)?(?:\\/components)?(?:\\/font-icons)?(?:\\/mobile)?(?:\\/slick){0,2}(?:\\/style)?(?:\\/unsemantic-grid)?(?:\\/csd)?(?:-theme)?(?:\\.min)?\\.css(?:\\?v(?:er)?=((?:\\d+\\.)+\\d+))?\\;version:\\1"
 				}
 			}
 		},
@@ -20525,9 +20733,7 @@
 			"onetime"
 		],
 		"requires": "WordPress",
-		"scriptSrc": [
-			"themes/generatepress\\S*\\.js(?:\\?ver=([0-9.]+))?\\;version:\\1"
-		],
+		"scriptSrc": "themes\\/generatepress(?:(?:%20)?_?child)?(?:\\/assets)?(?:\\/inc)?(?:\\/js)?(?:\\/accordion){0,2}(?:\\/lity)?(?:\\/menu)?(?:\\/owl)?(?:\\/slick){0,2}(?:\\/vs(?:loadmore)?(?:postviews)?)?(?:\\/back-to-top)?(?:\\/keen-slider)?(?:\\/tab-img)?(?:-init)?(?:\\.carousel)?(?:\\/jquery)?(?:\\.min)?\\.js(?:\\?v(?:er)?=((?:\\d+\\.)+\\d+))?\\;version:\\1",
 		"website": "https://generatepress.com"
 	},
 	"GeneratePress GP Premium": {
@@ -20543,7 +20749,7 @@
 		],
 		"requires": "WordPress",
 		"saas": true,
-		"scriptSrc": "/wp-content/plugins/gp-premium/.+\\.js(?:\\?ver=(\\d+(?:\\.\\d+)+))?\\;version:\\1",
+		"scriptSrc": "wp-content\\/plugins\\/gp-premium(?:\\/menu-plus)?(?:\\/sections)?\\/functions\\/js(?:\\/offside)?(?:\\/parallax)?(?:\\/sticky)?(?:\\.min)?(?:-((?:\\d+\\.)+\\d+))?\\.js(?:\\?v(?:er)?=((?:\\d+\\.)+\\d+))?\\;version:\\1\\2",
 		"website": "https://docs.generatepress.com/article/installing-gp-premium/"
 	},
 	"Genesis theme": {
@@ -26382,6 +26588,22 @@
 		],
 		"website": "https://www.j2store.org"
 	},
+	"Jadu": {
+		"cats": [
+			1
+		],
+		"description": "The Jadu Digital Platform provides the foundation of accessible, responsive and award-winning Websites, Forms, CRM and Portal solutions.",
+		"dom": "a[href*='www.jadu.net']",
+		"headers": {
+			"Node": "jadu-web-1"
+		},
+		"icon": "jadu.png",
+		"pricing": [
+			"mid",
+			"recurring"
+		],
+		"website": "https://www.jadu.net/"
+	},
 	"JANet": {
 		"cats": [
 			71
@@ -31207,7 +31429,7 @@
 		},
 		"oss": true,
 		"probe": {
-			"/magento_version": "magento"
+			"/magento_version": ""
 		},
 		"scriptSrc": [
 			"js/mage",
@@ -32838,6 +33060,21 @@
 		},
 		"website": "https://office.microsoft.com/word"
 	},
+	"Microweber": {
+		"cats": [
+			1
+		],
+		"description": "Open Source drag and drop style hosted CMS system.",
+		"dom": "meta[content='Microweber']",
+		"icon": "Microweber.svg",
+		"oss": true,
+		"pricing": [
+			"low",
+			"recurring"
+		],
+		"scriptSrc": "[Mm]icroweber(?:\\/includes)?(?:\\/api)?(?:\\/libs)?[\\w\\.\\/-]{0,45}(?:\\.min)?\\.js",
+		"website": "https://microweber.com"
+	},
 	"Miestro": {
 		"cats": [
 			6
@@ -33036,6 +33273,17 @@
 		},
 		"website": "https://join.misskey.page/"
 	},
+	"Mithril": {
+		"cats": [
+			12,
+			59
+		],
+		"description": "A Javascript Framework for building applications.",
+		"icon": "Mithril.svg",
+		"oss": true,
+		"scriptSrc": "(?:((?:\\d+\\.)+\\d+)\\/)?mithril(?:[\\.-]min)?\\.js(?:\\?v(?:er)?=((?:\\d+\\.)+\\d+))?\\;version:\\1\\2",
+		"website": "https://mithril.js.org/"
+	},
 	"Mittwald": {
 		"cats": [
 			88
@@ -33088,6 +33336,15 @@
 		],
 		"saas": true,
 		"website": "https://mixin.ir"
+	},
+	"Mixitup": {
+		"cats": [
+			59
+		],
+		"description": "A CSS3 and jQuery Filter & Sort Plugin.",
+		"icon": "kunkalabs.svg",
+		"scriptSrc": "mixitup(?:\\.min)?\\.js",
+		"website": "https://www.kunkalabs.com/mixitup/"
 	},
 	"Mixpanel": {
 		"cats": [
@@ -36467,6 +36724,17 @@
 			"owa_cmds": ""
 		},
 		"website": "https://www.openwebanalytics.com"
+	},
+	"Open edX": {
+		"cats": [
+			1,
+			21
+		],
+		"description": "The Open edX platform is a free and open source course management system.",
+		"dom": "meta[name='openedx-release-line'], #footer-openedx, .openedx, .open-edx-logo, .open-edx-link, .footer-about-openedx, a[href*='https://open.edx.org'], a[href*='https://openedx.org'], img[src*='https://files.edx.org/openedx-logos/'][alt='Powered by Open edX']",
+		"icon": "Open edX.png",
+		"oss": true,
+		"website": "https://openedx.org/"
 	},
 	"Open eShop": {
 		"cats": [
@@ -45105,6 +45373,7 @@
 	},
 	"Sakai": {
 		"cats": [
+			1,
 			21
 		],
 		"cookies": {
@@ -47732,6 +48001,14 @@
 		],
 		"website": "https://www.signal.co/"
 	},
+	"SignalR": {
+		"cats": [
+			59
+		],
+		"description": "Realtime web communication framework from Microsoft for ASP.NET.",
+		"scriptSrc": "(?:((?:\\d+\\.)+\\d+)\\/jquery\\.)?signal[rR](?:-((?:\\d+\\.)+\\d+))?(?:\\.min)?\\.js\\;version:\\1\\2",
+		"website": "https://dotnet.microsoft.com/es-es/apps/aspnet/signalr"
+	},
 	"Signifyd": {
 		"cats": [
 			10,
@@ -49105,6 +49382,15 @@
 		"saas": true,
 		"website": "https://www.smugmug.com"
 	},
+	"Snabbt": {
+		"cats": [
+			59
+		],
+		"description": "Minimalistic animation library in javascript Snabbt.js.",
+		"oss": true,
+		"scriptSrc": "(?:((?:\\d+\\.)+\\d+)\\/)?snabbt(?:[\\.-]min)?\\.js(?:\\?v(?:er)?=((?:\\d+\\.)+\\d+))?\\;version:\\1\\2",
+		"website": "https://daniel-lundin.github.io/snabbt.js/"
+	},
 	"Snap": {
 		"cats": [
 			18,
@@ -49335,6 +49621,19 @@
 		"scriptSrc": "socialladder\\.rkiapps\\.com/",
 		"website": "https://socialladderapp.com"
 	},
+	"Social Pinpoint": {
+		"cats": [
+			1
+		],
+		"description": "Social Pinpoint is a comprehensive online platform that facilitates meaningful and accessible engagement opportunities that bring your community together.",
+		"dom": "a[href*='www.socialpinpoint.com']",
+		"icon": "socialpinpoint.png",
+		"pricing": [
+			"poa"
+		],
+		"saas": true,
+		"website": "https://www.socialpinpoint.com/"
+	},
 	"Societe des Avis Garantis": {
 		"cats": [
 			87,
@@ -49350,6 +49649,17 @@
 		"saas": true,
 		"scriptSrc": "/wp-content/plugins/ag-core/.+\\.js(?:\\?ver=(\\d+(?:\\.\\d+)+))?\\;version:\\1",
 		"website": "https://www.societe-des-avis-garantis.fr"
+	},
+	"SockJS": {
+		"cats": [
+			18,
+			59
+		],
+		"description": "SockJS is a browser JavaScript library that provides a WebSocket-like object.",
+		"icon": "SockJS.png",
+		"oss": true,
+		"scriptSrc": "(?:((?:\\d+\\.)+\\d+)\\/)?sockjs(?:-((?:\\d+\\.)+\\d+))?(?:\\.min)?\\.js\\;version:\\1\\2",
+		"website": "https://sockjs.org"
 	},
 	"Socket.io": {
 		"cats": [
@@ -49727,6 +50037,20 @@
 		"saas": true,
 		"scriptSrc": "(?:^[^/]*//[^/]*viglink\\.com/api/|vglnk\\.js)",
 		"website": "https://www.sovrn.com/publishers/commerce/"
+	},
+	"Spark CMS": {
+		"cats": [
+			1
+		],
+		"cookies": {
+			"BNI_SparkCMSLB": ""
+		},
+		"description": "The CMS has been custom built by our web developers based on feedback from our clients, ensuring an easy to use platform that's been designed in consultation with the end user in mind.",
+		"dom": "link[href*='sparkcms.com.au']",
+		"icon": "Spark.png",
+		"oss": false,
+		"scriptSrc": "/spark-scripts/",
+		"website": "https://www.councilconnect.com.au/our-websites/about-spark-cms.aspx"
 	},
 	"SparkPost": {
 		"cats": [
@@ -52085,6 +52409,15 @@
 		"scriptSrc": "shine(?:\\.min)?\\.js",
 		"website": "https://bigspaceship.github.io/shine.js/"
 	},
+	"sidr": {
+		"cats": [
+			59
+		],
+		"description": "Sidr is a jQuery plugin for creating side menus.",
+		"oss": true,
+		"scriptSrc": "sidr(?:\\.min)?\\.js(?:\\?v(?:er)?=((?:\\d+\\.)+\\d+))?\\;version:\\1",
+		"website": "https://www.albertovarela.net/sidr/"
+	},
 	"siimple": {
 		"cats": [
 			66
@@ -52100,6 +52433,19 @@
 		"icon": "siimple.svg",
 		"oss": true,
 		"website": "https://siimple.xyz"
+	},
+	"slideout": {
+		"cats": [
+			59
+		],
+		"description": "A touch slideout navigation menu for your mobile web apps.",
+		"icon": "slideout.png",
+		"js": {
+			"slideout": ""
+		},
+		"oss": true,
+		"scriptSrc": "(?:((?:\\d+\\.)+\\d+)\\/)?slideout(?:-init)?(?:\\.min)?\\.js(?:\\?v(?:er)?=((?:\\d+\\.)+\\d+))?\\;version:\\1\\2",
+		"website": "https://slideout.js.org/"
 	},
 	"snigel AdConsent": {
 		"cats": [
@@ -52500,6 +52846,14 @@
 		"oss": true,
 		"requires": "WordPress",
 		"website": "https://tablepress.org"
+	},
+	"Tablesorter": {
+		"cats": [
+			59
+		],
+		"description": "Flexible client-side table sorting.",
+		"scriptSrc": "(?:((?:\\d+\\.)+\\d+)[-\\/](?:dist\\/js\\/)?)?(?:jquery\\.)?tablesorter(?:[\\.\\/]pager)?(?:-custom-controls)?(?:\\.widgets)?(?:\\.min)?\\.js\\;version:\\1",
+		"website": "https://mottie.github.io/tablesorter/"
 	},
 	"Taboola": {
 		"cats": [
@@ -54403,6 +54757,16 @@
 		],
 		"website": "https://www.tinybird.co/"
 	},
+	"Tinycon": {
+		"cats": [
+			59,
+			66
+		],
+		"description": "A library for manipulating a websites favicon.",
+		"oss": true,
+		"scriptSrc": "tinycon(?:\\.min)?\\.js",
+		"website": "https://github.com/tommoor/tinycon"
+	},
 	"Tippy.js": {
 		"cats": [
 			59
@@ -55823,6 +56187,18 @@
 		},
 		"icon": "thttpd.png",
 		"website": "https://acme.com/software/thttpd"
+	},
+	"timeago": {
+		"cats": [
+			59
+		],
+		"description": "Timeago is a jQuery plugin that makes it easy to support automatically updating fuzzy timestamps.",
+		"js": {
+			"timeago": ""
+		},
+		"oss": true,
+		"scriptSrc": "(?:((?:\\d+\\.)+\\d+)\\/)?(?:jquery\\.)?[Tt]imeago(?:_mkdocs_material)?(?:\\.full)?(?:\\.locales)?(?:\\.native)?(?:\\.min)?\\.js\\;version:\\1",
+		"website": "https://timeago.yarp.com/"
 	},
 	"toastr": {
 		"cats": [
