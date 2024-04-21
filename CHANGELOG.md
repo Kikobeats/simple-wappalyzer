@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 1.1.63 (2024-04-21)
+
+
+### Bug Fixes
+
+* add temporal WordPress fix ([fbaa525](https://github.com/Kikobeats/simple-wappalyzer/commit/fbaa5254a1d00ca06c6292d1fdf0020333845d3c))
+
 ### 1.1.62 (2024-02-09)
 
 ### 1.1.61 (2024-02-09)
