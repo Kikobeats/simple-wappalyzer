@@ -24,9 +24,6 @@ const fetchTechnologies = async () => {
     {}
   )
 
-  // temporal fix until https://github.com/Kikobeats/simple-wappalyzer/issues/72 is closed
-  technologies['Elementor Addon Elements'] = 'WordPress'
-
   return writeJsonFile('src/technologies.json', technologies)
 }
 
