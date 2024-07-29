@@ -33,7 +33,7 @@
     "lodash": "~4.17.21",
     "tough-cookie": "~4.1.2",
     "wappalyzer-core": "~6.10.66",
-    "write-json-file": "~4.3.0"
+    "write-json-file": "~6.0.0"
   },
   "devDependencies": {
     "@commitlint/cli": "latest",
