@@ -31,7 +31,7 @@
     "got": "~11.8.6",
     "jsdom": "~26.1.0",
     "lodash": "~4.17.21",
-    "tough-cookie": "~5.1.0",
+    "tough-cookie": "~6.0.0",
     "wappalyzer-core": "~6.10.66",
     "write-json-file": "~4.3.0"
   },
