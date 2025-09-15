@@ -3,7 +3,7 @@
 const { chain, mapValues } = require('lodash')
 const wappalyzer = require('wappalyzer-core')
 const { Cookie } = require('tough-cookie')
-const { Window } = require('happy-dom')
+const { Browser } = require('happy-dom')
 
 const technologies = require('./technologies.json')
 const categories = require('./categories.json')
@@ -42,8 +42,7 @@ const getMeta = document =>
   }, {})
 
 module.exports = async ({ url, headers, html }) => {
-  const window = new Window({
-    url,
+  const browser = new Browser({
     settings: {
       disableComputedStyleRendering: true,
       disableCSSFileLoading: true,
@@ -53,19 +52,23 @@ module.exports = async ({ url, headers, html }) => {
     }
   })
 
-  window.document.documentElement.innerHTML = html
+  const page = browser.newPage()
+  page.url = url
+  page.content = html
+
+  const document = page.mainFrame.document
 
   const detections = await wappalyzer.analyze({
     url,
-    meta: getMeta(window.document),
+    meta: getMeta(document),
     headers: getHeaders(headers),
-    scripts: getScripts(window.document.scripts),
+    scripts: getScripts(document.scripts),
     cookies: getCookies(getHeader(headers, 'set-cookie')),
-    html: window.document.documentElement.outerHTML
+    html: document.documentElement.outerHTML
   })
 
   const result = wappalyzer.resolve(detections)
-  window.close()
+  await browser.close()
 
   return result
 }
