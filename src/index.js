@@ -3,9 +3,7 @@
 const { chain, mapValues } = require('lodash')
 const wappalyzer = require('wappalyzer-core')
 const { Cookie } = require('tough-cookie')
-const jsdom = require('jsdom')
-
-const { JSDOM, VirtualConsole } = jsdom
+const { Window } = require('happy-dom')
 
 const technologies = require('./technologies.json')
 const categories = require('./categories.json')
@@ -25,12 +23,7 @@ const getCookies = str =>
 
 const getHeaders = headers => mapValues(headers, value => [value])
 
-const getScripts = scripts =>
-  chain(scripts)
-    .map('src')
-    .compact()
-    .uniq()
-    .value()
+const getScripts = scripts => chain(scripts).map('src').compact().uniq().value()
 
 const getHeader = (headers, name) => {
   name = name.toLowerCase()
@@ -49,18 +42,32 @@ const getMeta = document =>
   }, {})
 
 module.exports = async ({ url, headers, html }) => {
-  const dom = new JSDOM(html, { url, virtualConsole: new VirtualConsole() })
+  const window = new Window({
+    url,
+    settings: {
+      disableComputedStyleRendering: true,
+      disableCSSFileLoading: true,
+      disableIframePageLoading: true,
+      disableJavaScriptEvaluation: true,
+      disableJavaScriptFileLoading: true
+    }
+  })
+
+  window.document.documentElement.innerHTML = html
 
   const detections = await wappalyzer.analyze({
     url,
-    meta: getMeta(dom.window.document),
+    meta: getMeta(window.document),
     headers: getHeaders(headers),
-    scripts: getScripts(dom.window.document.scripts),
+    scripts: getScripts(window.document.scripts),
     cookies: getCookies(getHeader(headers, 'set-cookie')),
-    html: dom.serialize()
+    html: window.document.documentElement.outerHTML
   })
 
-  return wappalyzer.resolve(detections)
+  const result = wappalyzer.resolve(detections)
+  window.close()
+
+  return result
 }
 
 module.exports.getHeader = getHeader
