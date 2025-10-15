@@ -29,7 +29,7 @@
   ],
   "dependencies": {
     "got": "~11.8.6",
-    "happy-dom": "~19.0.1",
+    "happy-dom": "~20.0.1",
     "lodash": "~4.17.21",
     "tough-cookie": "~6.0.0",
     "wappalyzer-core": "6",
