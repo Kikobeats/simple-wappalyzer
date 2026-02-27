@@ -65,7 +65,7 @@ module.exports = async ({ url, headers, html }) => {
 
     return wappalyzer.resolve(detections)
   } finally {
-    await window.close()
+    await window.happyDOM.close()
   }
 }
 
