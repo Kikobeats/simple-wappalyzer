@@ -3,7 +3,7 @@
 const { chain, mapValues } = require('lodash')
 const wappalyzer = require('wappalyzer-core')
 const { Cookie } = require('tough-cookie')
-const { Browser } = require('happy-dom')
+const { Window } = require('happy-dom')
 
 const technologies = require('./technologies.json')
 const categories = require('./categories.json')
@@ -41,36 +41,32 @@ const getMeta = document =>
     return acc
   }, {})
 
+const DOCUMENT_SETTINGS = {
+  disableComputedStyleRendering: true,
+  disableCSSFileLoading: true,
+  disableIframePageLoading: true,
+  disableJavaScriptEvaluation: true,
+  disableJavaScriptFileLoading: true
+}
+
 module.exports = async ({ url, headers, html }) => {
-  const browser = new Browser({
-    settings: {
-      disableComputedStyleRendering: true,
-      disableCSSFileLoading: true,
-      disableIframePageLoading: true,
-      disableJavaScriptEvaluation: true,
-      disableJavaScriptFileLoading: true
-    }
-  })
+  const window = new Window({ url, settings: DOCUMENT_SETTINGS })
+  window.document.documentElement.innerHTML = html
 
-  const page = browser.newPage()
-  page.url = url
-  page.content = html
+  try {
+    const detections = await wappalyzer.analyze({
+      url,
+      meta: getMeta(window.document),
+      headers: getHeaders(headers),
+      scripts: getScripts(window.document.scripts),
+      cookies: getCookies(getHeader(headers, 'set-cookie')),
+      html: window.document.documentElement.outerHTML
+    })
 
-  const document = page.mainFrame.document
-
-  const detections = await wappalyzer.analyze({
-    url,
-    meta: getMeta(document),
-    headers: getHeaders(headers),
-    scripts: getScripts(document.scripts),
-    cookies: getCookies(getHeader(headers, 'set-cookie')),
-    html: document.documentElement.outerHTML
-  })
-
-  const result = wappalyzer.resolve(detections)
-  await browser.close()
-
-  return result
+    return wappalyzer.resolve(detections)
+  } finally {
+    await window.close()
+  }
 }
 
 module.exports.getHeader = getHeader
