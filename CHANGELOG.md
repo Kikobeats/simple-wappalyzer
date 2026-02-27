@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.91](https://github.com/Kikobeats/simple-wappalyzer/compare/v1.1.90...v1.1.91) (2026-02-27)
+
 ### 1.1.90 (2026-02-23)
 
 ### 1.1.89 (2026-02-10)
