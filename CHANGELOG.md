@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.92](https://github.com/Kikobeats/simple-wappalyzer/compare/v1.1.91...v1.1.92) (2026-02-27)
+
+
+### Bug Fixes
+
+* close detached happy-dom window via api ([9b732de](https://github.com/Kikobeats/simple-wappalyzer/commit/9b732dec20a5dc44f887447731079813ba92f266))
+
 ### [1.1.91](https://github.com/Kikobeats/simple-wappalyzer/compare/v1.1.90...v1.1.91) (2026-02-27)
 
 ### 1.1.90 (2026-02-23)
