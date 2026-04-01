@@ -48,7 +48,7 @@
     "git-authors-cli": "latest",
     "github-generate-release": "latest",
     "html-get": "latest",
-    "humanize-url": "2",
+    "humanize-url": "3",
     "nano-staged": "latest",
     "simple-git-hooks": "latest",
     "standard": "latest",
