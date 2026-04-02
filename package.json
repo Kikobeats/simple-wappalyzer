@@ -28,7 +28,7 @@
     "static"
   ],
   "dependencies": {
-    "got": "~11.8.6",
+    "got": "~15.0.0",
     "happy-dom": "~20.8.3",
     "lodash": "~4.17.21",
     "tough-cookie": "~6.0.0",
