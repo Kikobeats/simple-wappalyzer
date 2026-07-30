@@ -11,14 +11,19 @@ const categories = require('./categories.json')
 wappalyzer.setTechnologies(technologies)
 wappalyzer.setCategories(categories)
 
-const parseCookie = str => Cookie.parse(str).toJSON()
+const parseCookie = str => {
+  const cookie = Cookie.parse(str)
+  if (!cookie) return
+  const { key: name, ...props } = cookie.toJSON()
+  return { name, ...props }
+}
 
 const getCookies = str =>
   chain(str)
     .castArray()
     .compact()
     .map(parseCookie)
-    .map(({ key: name, ...props }) => ({ name, ...props }))
+    .compact()
     .value()
 
 const getHeaders = headers => mapValues(headers, value => [value])
