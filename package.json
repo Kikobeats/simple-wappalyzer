@@ -35,7 +35,7 @@
     "wappalyzer"
   ],
   "dependencies": {
-    "got": "~11.8.6",
+    "got": "~16.0.0",
     "happy-dom": "~20.12.0",
     "lodash": "~4.18.1",
     "tough-cookie": "~6.0.0",
