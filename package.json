@@ -2,7 +2,7 @@
   "name": "simple-wappalyzer",
   "description": "Detect web technologies from HTML and headers using Wappalyzer rules without a full browser.",
   "homepage": "https://github.com/Kikobeats/simple-wappalyzer",
-  "version": "1.1.104",
+  "version": "1.1.105",
   "main": "src/index.js",
   "author": {
     "email": "josefrancisco.verdu@gmail.com",
