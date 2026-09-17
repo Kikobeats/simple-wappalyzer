@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 1.1.106 (2026-09-17)
+
+
+### Bug Fixes
+
+* use @kikobeats/got to support Node.js 24.20 ([#123](https://github.com/Kikobeats/simple-wappalyzer/issues/123)) ([b7727a9](https://github.com/Kikobeats/simple-wappalyzer/commit/b7727a93147eb5c6236b394764fc8d01de1d03dd)), closes [nodejs/node#64847](https://github.com/nodejs/node/issues/64847)
+
 ### 1.1.105 (2026-09-07)
 
 ### 1.1.104 (2026-09-02)
