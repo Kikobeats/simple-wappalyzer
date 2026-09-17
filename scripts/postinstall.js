@@ -1,7 +1,7 @@
 'use strict'
 
 const writeJsonFile = require('write-json-file')
-const got = require('got')
+const got = require('@kikobeats/got')
 
 const fetchTechnologies = async () => {
   const chars = Array.from({ length: 27 }, (value, index) =>
