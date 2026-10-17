@@ -19,12 +19,7 @@ const parseCookie = str => {
 }
 
 const getCookies = str =>
-  chain(str)
-    .castArray()
-    .compact()
-    .map(parseCookie)
-    .compact()
-    .value()
+  chain(str).castArray().compact().map(parseCookie).compact().value()
 
 const getHeaders = headers => mapValues(headers, value => [value])
 
@@ -65,7 +60,8 @@ module.exports = async ({ url, headers, html }) => {
       headers: getHeaders(headers),
       scripts: getScripts(window.document.scripts),
       cookies: getCookies(getHeader(headers, 'set-cookie')),
-      html: window.document.documentElement.outerHTML
+      // Response body. outerHTML throws when an SVG <template> has no content fragment.
+      html
     })
 
     return wappalyzer.resolve(detections)
