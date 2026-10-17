@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 1.1.108 (2026-10-17)
+
+
+### Bug Fixes
+
+* detect technologies from the response body ([#126](https://github.com/Kikobeats/simple-wappalyzer/issues/126)) ([d166eae](https://github.com/Kikobeats/simple-wappalyzer/commit/d166eae0388b01868ae80fb24df759aac382e693))
+
 ### 1.1.107 (2026-10-15)
 
 ### 1.1.106 (2026-09-17)
