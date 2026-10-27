@@ -51,3 +51,18 @@ test('reject an invalid url', async t => {
     { message: 'Invalid URL' }
   )
 })
+
+test('ignore markup inside a self-closing script until </script>', async t => {
+  t.deepEqual(
+    await detect(`<script src="/a.js"/>var s = '${WORDPRESS_META}';</script>`),
+    []
+  )
+})
+
+test('accept a Buffer as html', async t => {
+  t.deepEqual(await detect(Buffer.from(WORDPRESS_META)), [
+    'WordPress@6.4.2',
+    'MySQL',
+    'PHP'
+  ])
+})

@@ -39,21 +39,30 @@ const getElements = html => {
   const elements = { meta: [], script: [] }
   let attributes = null
   let templateDepth = 0
+  let isInScript = false
   const parser = new Parser({
     onopentagname: name => {
+      attributes = null
+      if (isInScript) return
       if (name === 'template') templateDepth++
-      const isCollected = name === 'meta' || name === 'script'
-      attributes = isCollected && templateDepth === 0 ? {} : null
-      if (attributes) elements[name].push(attributes)
+      if (name === 'script') isInScript = true
+      if (templateDepth > 0 || (name !== 'meta' && name !== 'script')) return
+      attributes = {}
+      elements[name].push(attributes)
     },
     onattribute: (name, value) => {
       if (attributes && attributes[name] === undefined) attributes[name] = value
     },
     onclosetag: name => {
+      if (name === 'script') {
+        isInScript = false
+        return
+      }
+      if (isInScript) return
       if (name === 'template') templateDepth--
     }
   })
-  parser.end(html)
+  parser.end(String(html))
   return elements
 }
 
