@@ -1,15 +1,14 @@
 'use strict'
 
-const { chain, mapValues } = require('lodash')
+const { chain, mapValues, once } = require('lodash')
 const wappalyzer = require('wappalyzer-core')
 const { Cookie } = require('tough-cookie')
 const { Window } = require('happy-dom')
 
-const technologies = require('./technologies.json')
-const categories = require('./categories.json')
-
-wappalyzer.setTechnologies(technologies)
-wappalyzer.setCategories(categories)
+const loadTechnologies = once(() => {
+  wappalyzer.setTechnologies(require('./technologies.json'))
+  wappalyzer.setCategories(require('./categories.json'))
+})
 
 const parseCookie = str => {
   const cookie = Cookie.parse(str)
@@ -50,6 +49,7 @@ const DOCUMENT_SETTINGS = {
 }
 
 module.exports = async ({ url, headers, html }) => {
+  loadTechnologies()
   const window = new Window({ url, settings: DOCUMENT_SETTINGS })
   window.document.documentElement.innerHTML = html
 
