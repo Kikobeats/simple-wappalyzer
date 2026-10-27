@@ -1,14 +1,18 @@
 'use strict'
 
-const { chain, mapValues, once } = require('lodash')
+const { chain, mapValues } = require('lodash')
 const wappalyzer = require('wappalyzer-core')
 const { Cookie } = require('tough-cookie')
 const { Parser } = require('htmlparser2')
 
-const loadTechnologies = once(() => {
+let isTechnologiesLoaded = false
+
+const loadTechnologies = () => {
+  if (isTechnologiesLoaded) return
   wappalyzer.setTechnologies(require('./technologies.json'))
   wappalyzer.setCategories(require('./categories.json'))
-})
+  isTechnologiesLoaded = true
+}
 
 const parseCookie = str => {
   const cookie = Cookie.parse(str)
