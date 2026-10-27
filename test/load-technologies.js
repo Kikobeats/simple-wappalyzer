@@ -6,7 +6,12 @@ const test = require('ava')
 const analyze = require('../src')
 
 test('a failed technologies load is retried on the next call', async t => {
-  const { setTechnologies } = wappalyzer
+  const { setTechnologies, setCategories } = wappalyzer
+  let categoryCalls = 0
+  wappalyzer.setCategories = data => {
+    categoryCalls++
+    return setCategories(data)
+  }
   wappalyzer.setTechnologies = () => {
     throw new Error('load failed')
   }
@@ -26,4 +31,12 @@ test('a failed technologies load is retried on the next call', async t => {
     html: ''
   })
   t.true(detections.some(({ name }) => name === 'Nginx'))
+  t.is(categoryCalls, 1)
+
+  await analyze({
+    url: 'https://example.com',
+    headers: { server: 'nginx' },
+    html: ''
+  })
+  t.is(categoryCalls, 1)
 })

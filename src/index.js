@@ -5,13 +5,21 @@ const wappalyzer = require('wappalyzer-core')
 const { Cookie } = require('tough-cookie')
 const { Parser } = require('htmlparser2')
 
-let isTechnologiesLoaded = false
+let technologiesReady = false
+let categoriesReady = false
 
+// setTechnologies rewrites its registries in place and is not safe to call again.
+// Read categories before that setter so a missing file leaves the registries untouched,
+// and retry a failed setCategories without compiling technologies a second time.
 const loadTechnologies = () => {
-  if (isTechnologiesLoaded) return
-  wappalyzer.setTechnologies(require('./technologies.json'))
-  wappalyzer.setCategories(require('./categories.json'))
-  isTechnologiesLoaded = true
+  if (categoriesReady) return
+  const categories = require('./categories.json')
+  if (!technologiesReady) {
+    wappalyzer.setTechnologies(require('./technologies.json'))
+    technologiesReady = true
+  }
+  wappalyzer.setCategories(categories)
+  categoriesReady = true
 }
 
 const parseCookie = str => {
@@ -54,12 +62,8 @@ const getElements = html => {
       if (attributes && attributes[name] === undefined) attributes[name] = value
     },
     onclosetag: name => {
-      if (name === 'script') {
-        isInScript = false
-        return
-      }
-      if (isInScript) return
-      if (name === 'template' && templateDepth > 0) templateDepth--
+      if (name === 'script') isInScript = false
+      else if (name === 'template' && templateDepth > 0) templateDepth--
     }
   })
   parser.end(String(html))
