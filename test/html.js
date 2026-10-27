@@ -66,3 +66,12 @@ test('accept a Buffer as html', async t => {
     'PHP'
   ])
 })
+
+test('a stray </template> after a self-closing script keeps later templates inert', async t => {
+  t.deepEqual(
+    await detect(
+      `<script src="/a.js"/><template><script></script></template><template>${WORDPRESS_META}</template>`
+    ),
+    []
+  )
+})
