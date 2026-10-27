@@ -35,3 +35,9 @@ coverage
 .env
 .envrc
 src/apps.json
+
+############################
+# Benchmark
+############################
+benchmark-output.json
+cache/
