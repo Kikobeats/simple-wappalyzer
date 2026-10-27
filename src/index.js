@@ -3,13 +3,24 @@
 const { chain, mapValues } = require('lodash')
 const wappalyzer = require('wappalyzer-core')
 const { Cookie } = require('tough-cookie')
-const { Window } = require('happy-dom')
+const { Parser } = require('htmlparser2')
 
-const technologies = require('./technologies.json')
-const categories = require('./categories.json')
+let technologiesReady = false
+let categoriesReady = false
 
-wappalyzer.setTechnologies(technologies)
-wappalyzer.setCategories(categories)
+// setTechnologies rewrites its registries in place and is not safe to call again.
+// Read categories before that setter so a missing file leaves the registries untouched,
+// and retry a failed setCategories without compiling technologies a second time.
+const loadTechnologies = () => {
+  if (categoriesReady) return
+  const categories = require('./categories.json')
+  if (!technologiesReady) {
+    wappalyzer.setTechnologies(require('./technologies.json'))
+    technologiesReady = true
+  }
+  wappalyzer.setCategories(categories)
+  categoriesReady = true
+}
 
 const parseCookie = str => {
   const cookie = Cookie.parse(str)
@@ -23,8 +34,6 @@ const getCookies = str =>
 
 const getHeaders = headers => mapValues(headers, value => [value])
 
-const getScripts = scripts => chain(scripts).map('src').compact().uniq().value()
-
 const getHeader = (headers, name) => {
   name = name.toLowerCase()
   let result
@@ -34,40 +43,72 @@ const getHeader = (headers, name) => {
   return result
 }
 
-const getMeta = document =>
-  Array.from(document.querySelectorAll('meta')).reduce((acc, meta) => {
-    const key = meta.getAttribute('name') || meta.getAttribute('property')
-    if (key) acc[key.toLowerCase()] = [meta.getAttribute('content')]
+const getElements = html => {
+  const elements = { meta: [], script: [] }
+  let attributes = null
+  let templateDepth = 0
+  let isInScript = false
+  const parser = new Parser({
+    onopentagname: name => {
+      attributes = null
+      if (isInScript) return
+      if (name === 'template') templateDepth++
+      if (name === 'script') isInScript = true
+      if (templateDepth > 0 || (name !== 'meta' && name !== 'script')) return
+      attributes = {}
+      elements[name].push(attributes)
+    },
+    onattribute: (name, value) => {
+      if (attributes && attributes[name] === undefined) attributes[name] = value
+    },
+    onclosetag: name => {
+      if (name === 'script') isInScript = false
+      else if (name === 'template' && templateDepth > 0) templateDepth--
+    }
+  })
+  parser.end(String(html))
+  return elements
+}
+
+const getMeta = metas =>
+  metas.reduce((acc, { name, property, content = null }) => {
+    const key = name || property
+    if (key) acc[key.toLowerCase()] = [content]
     return acc
   }, {})
 
-const DOCUMENT_SETTINGS = {
-  disableComputedStyleRendering: true,
-  disableCSSFileLoading: true,
-  disableIframePageLoading: true,
-  disableJavaScriptEvaluation: true,
-  disableJavaScriptFileLoading: true
+const resolveUrl = (src, baseUrl) => {
+  try {
+    return new URL(src, baseUrl).href
+  } catch (_) {
+    return src
+  }
 }
 
+const getScripts = (scripts, baseUrl) => [
+  ...new Set(
+    scripts
+      .filter(({ src }) => src !== undefined)
+      .map(({ src }) => resolveUrl(src, baseUrl))
+      .filter(Boolean)
+  )
+]
+
 module.exports = async ({ url, headers, html }) => {
-  const window = new Window({ url, settings: DOCUMENT_SETTINGS })
-  window.document.documentElement.innerHTML = html
+  loadTechnologies()
+  const { href: baseUrl } = new URL(url ?? 'about:blank')
+  const { meta, script } = getElements(html)
 
-  try {
-    const detections = await wappalyzer.analyze({
-      url,
-      meta: getMeta(window.document),
-      headers: getHeaders(headers),
-      scripts: getScripts(window.document.scripts),
-      cookies: getCookies(getHeader(headers, 'set-cookie')),
-      // Response body. outerHTML throws when an SVG <template> has no content fragment.
-      html
-    })
+  const detections = await wappalyzer.analyze({
+    url,
+    meta: getMeta(meta),
+    headers: getHeaders(headers),
+    scripts: getScripts(script, baseUrl),
+    cookies: getCookies(getHeader(headers, 'set-cookie')),
+    html
+  })
 
-    return wappalyzer.resolve(detections)
-  } finally {
-    await window.happyDOM.close()
-  }
+  return wappalyzer.resolve(detections)
 }
 
 module.exports.getHeader = getHeader
