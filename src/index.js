@@ -61,7 +61,7 @@ const resolveUrl = (src, baseUrl) => {
   }
 }
 
-const getScripts = (scripts, baseUrl) => [
+const getScriptSrc = (scripts, baseUrl) => [
   ...new Set(
     scripts
       .filter(({ src }) => src !== undefined)
@@ -79,7 +79,7 @@ module.exports = async ({ url, headers, html }) => {
     url,
     meta: getMeta(meta),
     headers: getHeaders(headers),
-    scripts: getScripts(script, baseUrl),
+    scriptSrc: getScriptSrc(script, baseUrl),
     cookies: getCookies(getHeader(headers, 'set-cookie')),
     html
   })

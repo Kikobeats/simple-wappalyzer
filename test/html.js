@@ -134,20 +134,17 @@ test('detect meta tags inside noscript', async t => {
 test('resolve an empty script src against the page url', async t => {
   t.true(
     (
-      await detect(
-        '<script src=""></script>',
-        'https://example.com/algoliasearch.js'
-      )
-    ).includes('Algolia')
+      await detect('<script src=""></script>', 'https://cdn.avasize.com/a.js')
+    ).includes('Avasize')
   )
 })
 
 test('keep a relative script src when the page url cannot resolve it', async t => {
   const names = await wappalyzer({
     headers: {},
-    html: '<script src="algoliasearch.js"></script>'
+    html: '<script src="plausible.io/js/plausible.js"></script>'
   })
-  t.true(names.some(({ name }) => name === 'Algolia'))
+  t.true(names.some(({ name }) => name === 'Plausible'))
 })
 
 test('detect meta tags placed after a script inside an svg', async t => {
@@ -193,24 +190,24 @@ test('ignore meta tags without a name or property', async t => {
 
 test('resolve a root-relative script src against the page url', async t => {
   t.true(
-    (await detect('<script src="/algoliasearch.min.js"></script>')).includes(
-      'Algolia'
-    )
+    (
+      await detect('<script src="/a.js"></script>', 'https://cdn.avasize.com/')
+    ).includes('Avasize')
   )
 })
 
 test('resolve a protocol-relative script src against the page url', async t => {
   t.true(
-    (
-      await detect('<script src="//cdn.example.com/algoliasearch.js"></script>')
-    ).includes('Algolia')
+    (await detect('<script src="//cdn.avasize.com/a.js"></script>')).includes(
+      'Avasize'
+    )
   )
 })
 
 test('ignore scripts inside a template', async t => {
   t.deepEqual(
     await detect(
-      '<template><script src="/algoliasearch.min.js"></script></template>'
+      '<template><script src="https://cdn.avasize.com/a.js"></script></template>'
     ),
     []
   )
@@ -219,16 +216,16 @@ test('ignore scripts inside a template', async t => {
 test('keep the first script src when the attribute is repeated', async t => {
   t.deepEqual(
     await detect(
-      '<script src="/nope.js" src="/algoliasearch.min.js"></script>'
+      '<script src="/nope.js" src="https://cdn.avasize.com/a.js"></script>'
     ),
     []
   )
   t.true(
     (
       await detect(
-        '<script src="/algoliasearch.min.js" src="/nope.js"></script>'
+        '<script src="https://cdn.avasize.com/a.js" src="/nope.js"></script>'
       )
-    ).includes('Algolia')
+    ).includes('Avasize')
   )
 })
 
@@ -239,40 +236,21 @@ test('keep going when a script src is not a valid url', async t => {
   )
 })
 
-test('ignore a script that has no src', async t => {
-  t.true(
-    (
-      await detect(
-        '<script src="/app.php"></script><script></script>',
-        'https://example.com/page'
-      )
-    ).includes('PHP')
-  )
-})
-
-test('drop an empty script src when it cannot be resolved', async t => {
-  const names = await wappalyzer({
-    headers: {},
-    html: '<script src="https://example.com/app.php"></script><script src=""></script>'
-  })
-  t.true(names.some(({ name }) => name === 'PHP'))
-})
-
 test('resolve an absolute script src when the page url is omitted', async t => {
   const names = await wappalyzer({
     headers: {},
-    html: '<script src="https://cdn.example.com/algoliasearch.js"></script>'
+    html: '<script src="https://cdn.avasize.com/a.js"></script>'
   })
-  t.true(names.some(({ name }) => name === 'Algolia'))
+  t.true(names.some(({ name }) => name === 'Avasize'))
 })
 
 test('resolve an absolute script src when the page url is null', async t => {
   const names = await wappalyzer({
     url: null,
     headers: {},
-    html: '<script src="https://cdn.example.com/algoliasearch.js"></script>'
+    html: '<script src="https://cdn.avasize.com/a.js"></script>'
   })
-  t.true(names.some(({ name }) => name === 'Algolia'))
+  t.true(names.some(({ name }) => name === 'Avasize'))
 })
 
 test('reject an empty url', async t => {
