@@ -1,6 +1,6 @@
 'use strict'
 
-const { castArray, mapValues } = require('lodash')
+const NullProtoObj = require('null-prototype-object')
 const wappalyzer = require('wappalyzer-core')
 const { Cookie } = require('tough-cookie')
 const { elements } = require('html-scripts')
@@ -26,7 +26,7 @@ const loadTechnologies = () => {
 }
 
 const getCookies = setCookie =>
-  castArray(setCookie).reduce((cookies, header) => {
+  (setCookie == null ? [] : [].concat(setCookie)).reduce((cookies, header) => {
     const cookie = Cookie.parse(header)
     if (cookie) {
       const name = cookie.key.toLowerCase()
@@ -34,14 +34,19 @@ const getCookies = setCookie =>
       cookies[name].push(cookie.value)
     }
     return cookies
-  }, Object.create(null))
+  }, new NullProtoObj())
 
-const getHeaders = headers => mapValues(headers, value => [value])
+const getHeaders = headers =>
+  Object.entries(headers ?? {}).reduce((normalized, [name, value]) => {
+    const key = name.toLowerCase()
+    normalized[key] = (normalized[key] || []).concat(value)
+    return normalized
+  }, new NullProtoObj())
 
 const getHeader = (headers, name) => {
   name = name.toLowerCase()
   let result
-  Object.keys(headers).find(
+  Object.keys(headers ?? {}).find(
     key => name === key.toLowerCase() && (result = headers[key])
   )
   return result
@@ -78,12 +83,14 @@ module.exports = async ({ url, headers, html }) => {
   const { href: baseUrl } = new URL(url ?? 'about:blank')
   const { meta, script } = elements(html, ELEMENT_TAGS, ELEMENT_OPTIONS)
 
+  const normalizedHeaders = getHeaders(headers)
+
   const detections = await wappalyzer.analyze({
     url,
     meta: getMeta(meta),
-    headers: getHeaders(headers),
+    headers: normalizedHeaders,
     scriptSrc: getScriptSrc(script, baseUrl),
-    cookies: getCookies(getHeader(headers, 'set-cookie')),
+    cookies: getCookies(normalizedHeaders['set-cookie']),
     html
   })
 
