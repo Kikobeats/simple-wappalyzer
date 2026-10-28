@@ -52,6 +52,22 @@ test('reject an invalid url', async t => {
   )
 })
 
+test('a solidus ends a script so later technologies are read', async t => {
+  const names = await detect(
+    `<script src="/a.js"></script/>${WORDPRESS_META}<script src="/algoliasearch.min.js"></script>`
+  )
+  t.true(names.includes('WordPress@6.4.2'))
+  t.true(names.includes('Algolia'))
+})
+
+test('a solidus ends a style so a later meta tag is read', async t => {
+  t.deepEqual(await detect(`<style></style/>${WORDPRESS_META}`), [
+    'WordPress@6.4.2',
+    'MySQL',
+    'PHP'
+  ])
+})
+
 test('ignore markup inside a self-closing script until </script>', async t => {
   t.deepEqual(
     await detect(`<script src="/a.js"/>var s = '${WORDPRESS_META}';</script>`),

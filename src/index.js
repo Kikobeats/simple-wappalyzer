@@ -3,7 +3,20 @@
 const { chain, mapValues } = require('lodash')
 const wappalyzer = require('wappalyzer-core')
 const { Cookie } = require('tough-cookie')
-const { Parser } = require('htmlparser2')
+const { Parser, Tokenizer } = require('htmlparser2')
+
+// htmlparser2 ends a raw-text end tag on ">" or whitespace only. The HTML
+// tokenizer also ends it on "/", so "</script/" hides every later meta tag
+// and script src until a canonical end tag. Treat the solidus as whitespace;
+// the closing-tag state then finishes the tag at the next ">".
+class RawTextEndTokenizer extends Tokenizer {
+  stateInSpecialTag (char) {
+    if (this.sequenceIndex === this.currentSequence.length && char === 47) {
+      return super.stateInSpecialTag(32)
+    }
+    return super.stateInSpecialTag(char)
+  }
+}
 
 let technologiesReady = false
 let categoriesReady = false
@@ -65,7 +78,7 @@ const getElements = html => {
       if (name === 'script') isInScript = false
       else if (name === 'template' && templateDepth > 0) templateDepth--
     }
-  })
+  }, { Tokenizer: RawTextEndTokenizer })
   parser.end(String(html))
   return elements
 }
