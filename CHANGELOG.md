@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 2.0.3 (2026-10-28)
+
+
+### Bug Fixes
+
+* **headers:** match header patterns whatever the name casing ([#136](https://github.com/Kikobeats/simple-wappalyzer/issues/136)) ([ba4c817](https://github.com/Kikobeats/simple-wappalyzer/commit/ba4c817dee9635045571a1fcb9c898e78238d985))
+
 ### 2.0.2 (2026-10-28)
 
 
