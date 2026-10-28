@@ -83,6 +83,30 @@ test('drop an empty script src when it cannot be resolved', async t => {
   )
 })
 
+test('drop a whitespace script src when it cannot be resolved', async t => {
+  const blanks = [' ', '\n', '\t', '\r', '\f', '\v']
+    .map(src => `<script src="${src}"></script>`)
+    .join('')
+
+  t.deepEqual(
+    await scriptSrcFor({
+      html: `<script src="https://example.com/app.js"></script>${blanks}`
+    }),
+    ['https://example.com/app.js']
+  )
+})
+
+test('keep a non-breaking space script src when it cannot be resolved', async t => {
+  t.deepEqual(
+    await scriptSrcFor({
+      html:
+        '<script src="https://example.com/app.js"></script>' +
+        '<script src="\u00A0"></script>'
+    }),
+    ['https://example.com/app.js', '\u00A0']
+  )
+})
+
 test('do not match a script url as script content', async t => {
   t.deepEqual(
     await detect(

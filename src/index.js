@@ -58,7 +58,9 @@ const resolveUrl = (src, baseUrl) => {
   try {
     return new URL(src, baseUrl).href
   } catch (_) {
-    return src
+    // ASCII whitespace is an empty relative URL. Against about:blank the
+    // parser throws, and the raw whitespace would pass filter(Boolean).
+    return /^[\t\n\f\r\v ]*$/.test(src) ? '' : src
   }
 }
 
