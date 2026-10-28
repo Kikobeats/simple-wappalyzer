@@ -1,6 +1,7 @@
 'use strict'
 
 const { castArray } = require('lodash')
+const NullProtoObj = require('null-prototype-object')
 const wappalyzer = require('wappalyzer-core')
 const { Cookie } = require('tough-cookie')
 const { elements } = require('html-scripts')
@@ -34,14 +35,14 @@ const getCookies = setCookie =>
       cookies[name].push(cookie.value)
     }
     return cookies
-  }, Object.create(null))
+  }, new NullProtoObj())
 
 const getHeaders = headers =>
   Object.entries(headers ?? {}).reduce((normalized, [name, value]) => {
     const key = name.toLowerCase()
     normalized[key] = (normalized[key] || []).concat(value)
     return normalized
-  }, Object.create(null))
+  }, new NullProtoObj())
 
 const getHeader = (headers, name) => {
   name = name.toLowerCase()

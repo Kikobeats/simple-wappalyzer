@@ -38,6 +38,7 @@
     "@kikobeats/got": "~11.8.8",
     "html-scripts": "~2.1.0",
     "lodash": "~4.18.1",
+    "null-prototype-object": "~1.2.7",
     "tough-cookie": "~6.0.0",
     "wappalyzer-core": "6",
     "write-json-file": "~4.3.0"
