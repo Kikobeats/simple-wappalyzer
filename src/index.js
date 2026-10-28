@@ -37,7 +37,7 @@ const getCookies = setCookie =>
   }, Object.create(null))
 
 const getHeaders = headers =>
-  Object.entries(headers).reduce((normalized, [name, value]) => {
+  Object.entries(headers ?? {}).reduce((normalized, [name, value]) => {
     const key = name.toLowerCase()
     normalized[key] = (normalized[key] || []).concat(value)
     return normalized
@@ -46,7 +46,7 @@ const getHeaders = headers =>
 const getHeader = (headers, name) => {
   name = name.toLowerCase()
   let result
-  Object.keys(headers).find(
+  Object.keys(headers ?? {}).find(
     key => name === key.toLowerCase() && (result = headers[key])
   )
   return result
