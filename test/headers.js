@@ -47,6 +47,15 @@ test('merge values whose header names differ only by case', async t => {
   }
 })
 
+test('detect a cookie from every case variant of Set-Cookie', async t => {
+  for (const headers of [
+    { 'Set-Cookie': 'PHPSESSID=abc', 'set-cookie': 'laravel_session=xyz' },
+    { 'set-cookie': 'laravel_session=xyz', 'Set-Cookie': 'PHPSESSID=abc' }
+  ]) {
+    t.true((await detect(headers)).includes('Laravel'))
+  }
+})
+
 test('keep detecting when headers are missing', async t => {
   const html = '<meta name="generator" content="WordPress 6.4.2">'
   const url = 'https://example.com/'

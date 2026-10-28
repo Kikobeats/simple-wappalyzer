@@ -1,6 +1,5 @@
 'use strict'
 
-const { castArray } = require('lodash')
 const NullProtoObj = require('null-prototype-object')
 const wappalyzer = require('wappalyzer-core')
 const { Cookie } = require('tough-cookie')
@@ -27,7 +26,7 @@ const loadTechnologies = () => {
 }
 
 const getCookies = setCookie =>
-  castArray(setCookie).reduce((cookies, header) => {
+  (setCookie == null ? [] : [].concat(setCookie)).reduce((cookies, header) => {
     const cookie = Cookie.parse(header)
     if (cookie) {
       const name = cookie.key.toLowerCase()
@@ -84,12 +83,14 @@ module.exports = async ({ url, headers, html }) => {
   const { href: baseUrl } = new URL(url ?? 'about:blank')
   const { meta, script } = elements(html, ELEMENT_TAGS, ELEMENT_OPTIONS)
 
+  const normalizedHeaders = getHeaders(headers)
+
   const detections = await wappalyzer.analyze({
     url,
     meta: getMeta(meta),
-    headers: getHeaders(headers),
+    headers: normalizedHeaders,
     scriptSrc: getScriptSrc(script, baseUrl),
-    cookies: getCookies(getHeader(headers, 'set-cookie')),
+    cookies: getCookies(normalizedHeaders['set-cookie']),
     html
   })
 
