@@ -27,7 +27,7 @@ const loadTechnologies = () => {
 
 const getCookies = setCookie =>
   castArray(setCookie).reduce((cookies, header) => {
-    const cookie = header && Cookie.parse(header)
+    const cookie = Cookie.parse(header)
     if (cookie) {
       const name = cookie.key.toLowerCase()
       cookies[name] = cookies[name] || []
