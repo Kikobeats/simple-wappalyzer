@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## 2.0.0 (2026-10-28)
+
+
+### ⚠ BREAKING CHANGES
+
+* **deps:** htmlparser2 v11+ requires Node.js >= 20.19.
+
+Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+
+* test: raw text end tags may end with a solidus
+
+### build
+
+* **deps:** read meta and script tags with html-scripts ([#130](https://github.com/Kikobeats/simple-wappalyzer/issues/130)) ([b0e897a](https://github.com/Kikobeats/simple-wappalyzer/commit/b0e897abaeb491875c0c2eeb1208068c35242ef5)), closes [#129](https://github.com/Kikobeats/simple-wappalyzer/issues/129)
+
 ### 1.1.111 (2026-10-28)
 
 ### 1.1.110 (2026-10-27)
