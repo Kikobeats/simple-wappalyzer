@@ -3,7 +3,10 @@
 const { chain, mapValues } = require('lodash')
 const wappalyzer = require('wappalyzer-core')
 const { Cookie } = require('tough-cookie')
-const { Parser } = require('htmlparser2')
+const { elements } = require('html-scripts')
+
+const ELEMENT_TAGS = ['meta', 'script']
+const ELEMENT_OPTIONS = { scripting: false }
 
 let technologiesReady = false
 let categoriesReady = false
@@ -43,33 +46,6 @@ const getHeader = (headers, name) => {
   return result
 }
 
-const getElements = html => {
-  const elements = { meta: [], script: [] }
-  let attributes = null
-  let templateDepth = 0
-  let isInScript = false
-  const parser = new Parser({
-    onopentagname: name => {
-      attributes = null
-      if (isInScript) return
-      if (name === 'template') templateDepth++
-      if (name === 'script') isInScript = true
-      if (templateDepth > 0 || (name !== 'meta' && name !== 'script')) return
-      attributes = {}
-      elements[name].push(attributes)
-    },
-    onattribute: (name, value) => {
-      if (attributes && attributes[name] === undefined) attributes[name] = value
-    },
-    onclosetag: name => {
-      if (name === 'script') isInScript = false
-      else if (name === 'template' && templateDepth > 0) templateDepth--
-    }
-  })
-  parser.end(String(html))
-  return elements
-}
-
 const getMeta = metas =>
   metas.reduce((acc, { name, property, content = null }) => {
     const key = name || property
@@ -97,7 +73,7 @@ const getScripts = (scripts, baseUrl) => [
 module.exports = async ({ url, headers, html }) => {
   loadTechnologies()
   const { href: baseUrl } = new URL(url ?? 'about:blank')
-  const { meta, script } = getElements(html)
+  const { meta, script } = elements(html, ELEMENT_TAGS, ELEMENT_OPTIONS)
 
   const detections = await wappalyzer.analyze({
     url,

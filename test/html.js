@@ -104,6 +104,25 @@ test('ignore meta tags written as text inside textarea, title and xmp', async t 
   }
 })
 
+test('detect meta tags after a self-closing script in a math annotation', async t => {
+  t.deepEqual(
+    await detect(
+      `<math><annotation-xml><script src="/a.js"/></annotation-xml></math>${WORDPRESS_META}`
+    ),
+    ['WordPress@6.4.2', 'MySQL', 'PHP']
+  )
+})
+
+test('detect meta tags after a raw text end tag closed with a solidus', async t => {
+  for (const tag of ['script', 'style', 'title', 'textarea']) {
+    t.deepEqual(
+      await detect(`<${tag}></${tag}/>${WORDPRESS_META}`),
+      ['WordPress@6.4.2', 'MySQL', 'PHP'],
+      tag
+    )
+  }
+})
+
 test('detect meta tags inside noscript', async t => {
   t.deepEqual(await detect(`<noscript>${WORDPRESS_META}</noscript>`), [
     'WordPress@6.4.2',
