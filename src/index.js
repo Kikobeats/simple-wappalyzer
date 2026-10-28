@@ -1,6 +1,6 @@
 'use strict'
 
-const { castArray, mapValues } = require('lodash')
+const { castArray } = require('lodash')
 const wappalyzer = require('wappalyzer-core')
 const { Cookie } = require('tough-cookie')
 const { elements } = require('html-scripts')
@@ -36,7 +36,12 @@ const getCookies = setCookie =>
     return cookies
   }, Object.create(null))
 
-const getHeaders = headers => mapValues(headers, value => [value])
+const getHeaders = headers =>
+  Object.entries(headers).reduce((normalized, [name, value]) => {
+    const key = name.toLowerCase()
+    normalized[key] = (normalized[key] || []).concat(value)
+    return normalized
+  }, Object.create(null))
 
 const getHeader = (headers, name) => {
   name = name.toLowerCase()
