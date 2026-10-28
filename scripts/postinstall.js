@@ -3,6 +3,8 @@
 const writeJsonFile = require('write-json-file')
 const got = require('@kikobeats/got')
 
+const shouldFetchData = require('./should-fetch-data')
+
 const fetchTechnologies = async () => {
   const chars = Array.from({ length: 27 }, (value, index) =>
     index ? String.fromCharCode(index + 96) : '_'
@@ -35,6 +37,10 @@ const fetchCategories = async () => {
   return writeJsonFile('src/categories.json', categories)
 }
 
-Promise.all([fetchTechnologies(), fetchCategories()]).catch(error =>
-  console.error(error)
-)
+if (
+  shouldFetchData({ cwd: process.cwd(), env: process.env, argv: process.argv })
+) {
+  Promise.all([fetchTechnologies(), fetchCategories()]).catch(error =>
+    console.error(error)
+  )
+}
