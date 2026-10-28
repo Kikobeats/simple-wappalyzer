@@ -1,6 +1,6 @@
 'use strict'
 
-const { chain, mapValues } = require('lodash')
+const { castArray, mapValues } = require('lodash')
 const wappalyzer = require('wappalyzer-core')
 const { Cookie } = require('tough-cookie')
 const { elements } = require('html-scripts')
@@ -25,15 +25,16 @@ const loadTechnologies = () => {
   categoriesReady = true
 }
 
-const parseCookie = str => {
-  const cookie = Cookie.parse(str)
-  if (!cookie) return
-  const { key: name, ...props } = cookie.toJSON()
-  return { name, ...props }
-}
-
-const getCookies = str =>
-  chain(str).castArray().compact().map(parseCookie).compact().value()
+const getCookies = setCookie =>
+  castArray(setCookie).reduce((cookies, header) => {
+    const cookie = header && Cookie.parse(header)
+    if (cookie) {
+      const name = cookie.key.toLowerCase()
+      cookies[name] = cookies[name] || []
+      cookies[name].push(cookie.value)
+    }
+    return cookies
+  }, Object.create(null))
 
 const getHeaders = headers => mapValues(headers, value => [value])
 
