@@ -36,7 +36,7 @@
   ],
   "dependencies": {
     "@kikobeats/got": "~11.8.8",
-    "htmlparser2": "~10.1.0",
+    "html-scripts": "~2.1.0",
     "lodash": "~4.18.1",
     "tough-cookie": "~6.0.0",
     "wappalyzer-core": "6",
@@ -61,7 +61,7 @@
     "standard-version": "latest"
   },
   "engines": {
-    "node": ">= 10"
+    "node": ">= 20.19"
   },
   "files": [
     "scripts",
