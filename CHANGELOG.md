@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 2.0.2 (2026-10-28)
+
+
+### Bug Fixes
+
+* **analyze:** pass script urls as scriptSrc and cookies keyed by name ([#135](https://github.com/Kikobeats/simple-wappalyzer/issues/135)) ([420582c](https://github.com/Kikobeats/simple-wappalyzer/commit/420582cfe14b7b26eba0acf1c15eb0b202095fc2))
+
 ### 2.0.1 (2026-10-28)
 
 ## 2.0.0 (2026-10-28)
