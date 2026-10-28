@@ -70,6 +70,15 @@ test('read the version from a cookie pattern', async t => {
   ])
 })
 
+test('keep every value of a repeated cookie name', async t => {
+  for (const setCookie of [
+    ['rr-testCookie=nope', 'rr-testCookie=testvalue'],
+    ['rr-testCookie=testvalue', 'rr-testCookie=nope']
+  ]) {
+    t.deepEqual(await detectFromCookies(setCookie), ['Retail Rocket'])
+  }
+})
+
 test('accept cookie names that shadow object properties', async t => {
   t.deepEqual(
     await detectFromCookies([

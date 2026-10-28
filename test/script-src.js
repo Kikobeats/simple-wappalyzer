@@ -82,3 +82,13 @@ test('drop an empty script src when it cannot be resolved', async t => {
     ['https://example.com/app.js']
   )
 })
+
+test('do not match a script url as script content', async t => {
+  t.deepEqual(
+    await detect(
+      '<script src="/index.php?x=1"></script>' +
+        '<script src="https://plausible.io/js/plausible.js"></script>'
+    ),
+    ['Plausible']
+  )
+})
